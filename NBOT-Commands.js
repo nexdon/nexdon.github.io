@@ -48,7 +48,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill with a sniper!');
         } else {
-            send(':' + id + '  (　-_･) ︻デ═一 ▸       @' + toPingFormat(args) + ' [ @' + toPingFormat(args) + ' was killed by a sniper! ]')
+            send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + ' [ @' + toPingFormat(args) + ' was killed by a sniper! ]')
         }
     }
 };
