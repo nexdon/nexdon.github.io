@@ -1,3 +1,4 @@
+$.post('http://chat.stackoverflow.com/chats/' + $("input[name='room']").val() + '/messages/new', {text: '**[NBOT]** I started NBOT!', fkey: fkey().fkey});
 function say1() {
 	$.post('http://chat.stackoverflow.com/chats/' + $("input[name='room']").val() + '/messages/new', {
 			text: '**[NBOT]** Read rules at http://yourphotomake.info/rules.', 
