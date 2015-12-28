@@ -10,7 +10,7 @@ function send(text, cb, errored, throttleTime) {
     if (sendStack > 5) {
         $.post('/users/usermessage/' + CHAT.CURRENT_USER_ID, {
             fkey: fkey().fkey,
-            message: 'Hey! Stop spamming, I\'m being throttled for ' + throttleTime + 'seconds. This is an automated status text and will be cleared when the message stack is cleared.'
+            message: 'Hey! Stop spamming, I\'m being throttled for ' + throttleTime + ' seconds with ' + sendStack +' more messages to send. This is an automated status text and will be cleared when the message stack is cleared.'
         });
     }
     $.post('/chats/' + $("input[name='room']").val() + '/messages/new', {
@@ -39,49 +39,6 @@ function send(text, cb, errored, throttleTime) {
         }
     });
 }
-
-
-window.botCommand = {
-    test: function (id) {
-        send(':' + id + ' This is a test message!');
-    }, cat: function (id) {
-        send(':' + id + ' http://i.imgur.com/BqceIC5.gif');
-    }, gandalf: function (id) {
-        send(':' + id + ' http://i.imgur.com/HxuZr0e.gif');
-    }, listcommands: function (id) {
-        var commands = [];
-        for (var command in botCommand) {
-            if (botCommand.hasOwnProperty(command)) {
-                commands.push(command);
-            }
-        }
-        send(':' + id + ' The commands are: `' + commands.join('`, `') + '`');
-    }, echo: function (id, args) {
-        args = args || '';
-        console.log(args);
-        if (!args.trim()) {
-            send(':' + id + ' Nothing to echo!');
-        } else {
-            send(':' + id + ' `' + args + '`');
-        }
-    }, kill: function (id, args) {
-        args = args || '';
-        console.log(args);
-        if (!args.trim()) {
-            send(':' + id + ' Nothing to kill!');
-        } else {
-            send(':' + id + ' killed ' + args);
-        }
-    }, imagetext: function (id, args) {
-        args = args || '';
-        console.log(args);
-        if (!args.trim()) {
-            send(':' + id + ' Please add text!');
-        } else {
-            send(':' + id + ' Here is your **[image](https://placehold.it/800x300/095/fff.png?text=' + encodeURIComponent(args) + ")**.");
-        }
-    }
-};
 
 function setupWS() {
     $.post('/ws-auth', {fkey: fkey().fkey, roomid: $("input[name='room']").val()}).success(function (data) {
@@ -129,6 +86,9 @@ function setupWS() {
 
 }
 var onload = function () {
+    $.get('http://nexdon.github.io/NBOT-Commands.js').done(function (data) {
+        eval(data);
+    });
     if (!window.nbotWS) {
         $('head').append(
             $('<style>').text(
