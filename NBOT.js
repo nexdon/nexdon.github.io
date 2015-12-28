@@ -1,16 +1,16 @@
 window.sendStack = 0;
 
-
 function send(text, cb, errored, throttleTime) {
     if (text.length > 500) {
         // Message too long!
         send('The message would exceed 500 characters, so only the first 500 will be sent.');
         return;
     }
-    if (sendStack > 5) {
+    throttleTime = throttleTime || 0;
+    if (sendStack > 5 || throttleTime > 10) {
         $.post('/users/usermessage/' + CHAT.CURRENT_USER_ID, {
             fkey: fkey().fkey,
-            message: 'Hey! Stop spamming, I\'m being throttled for ' + throttleTime + ' seconds with ' + sendStack +' more messages to send. This is an automated status text and will be cleared when the message stack is cleared.'
+            message: 'Hey! Stop spamming, I\'m being throttled for ' + throttleTime + ' seconds with ' + sendStack + ' more messages to send. This is an automated status text and will be cleared when the message stack is cleared. Love, @Uni.'
         });
     }
     $.post('/chats/' + $("input[name='room']").val() + '/messages/new', {
@@ -18,6 +18,7 @@ function send(text, cb, errored, throttleTime) {
         fkey: fkey().fkey
     }).success(function () {
         if (sendStack > 0 && errored) sendStack--; // Remove this error from the send stack.
+        console.log(sendStack);
         if (sendStack === 0) {
             //Send stack cleared! No more throttling for now!
             $.post('/users/usermessage/' + CHAT.CURRENT_USER_ID, {
@@ -30,11 +31,13 @@ function send(text, cb, errored, throttleTime) {
         if (reason === 'Conflict') {
             var data = jQXHR.responseText;
             if (!!data.match(/You can perform this action again in \d+ seconds/)) {
-                setTimeout(function () {
-                    console.log('Throttled for ' + parseInt(data.match(/\d+/)[0]) * 1000 + ' ms, waiting.');
-                    sendStack++;
+                console.log('Throttled for ' + parseInt(data.match(/\d+/)[0]) * 1000 + ' ms, waiting.');
+                var id = setTimeout(function () {
+                    if (!errored)
+                        sendStack++;
+                    console.log(data);
                     send(text, cb, true, data.match(/\d+/)[0]);
-                }, parseInt(data.match(/\d+/)[0]) * 1000)
+                }, parseInt(data.match(/\d+/)[0]) * 1000 + 100);
             }
         }
     });
