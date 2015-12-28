@@ -15,7 +15,6 @@ window.botCommand = {
         send(':' + id + ' The commands are: `' + commands.join('`, `') + '`');
     }, echo: function (id, args) {
         args = args || '';
-        console.log(args);
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
@@ -23,7 +22,6 @@ window.botCommand = {
         }
     }, kill: function (id, args) {
         args = args || '';
-        console.log(args);
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
         } else {
@@ -31,11 +29,26 @@ window.botCommand = {
         }
     }, imagetext: function (id, args) {
         args = args || '';
-        console.log(args);
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
             send(':' + id + ' **[Here is your image text](http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args) + ")**.");
+        }
+    }, slap: function (id, args) {
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Slap who?');
+        } else {
+            send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
+        }
+    }, rules: function () {
+        send('Read rules at http://yourphotomake.info/rules.');
+    }, sniper: function (id, args) {
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Nothing to kill with a sniper!');
+        } else {
+            send(':' + id + '  (　-_･) ︻デ═一 ▸       @' + toPingFormat(args) + ' [ @' + toPingFormat(args) + ' was killed by a sniper! ]')
         }
     }
 };

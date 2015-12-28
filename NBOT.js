@@ -35,12 +35,15 @@ function send(text, cb, errored, throttleTime) {
                 var id = setTimeout(function () {
                     if (!errored)
                         sendStack++;
-                    console.log(data);
                     send(text, cb, true, data.match(/\d+/)[0]);
                 }, parseInt(data.match(/\d+/)[0]) * 1000 + 100);
             }
         }
     });
+}
+
+function toPingFormat(user) {
+    return user.replace(/[!@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '');
 }
 
 function setupWS() {
@@ -73,7 +76,7 @@ function setupWS() {
                             }
                         } else if (eventJson['event_type'] == 3) {
                             var username = eventJson['user_name'];
-                            send('Hello, @' + username.replace(/[!@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '') + '! If you have not read the rules, please do so.', function () {
+                            send('Hello, @' + toPingFormat(username) + '! If you have not read the rules, please do so.', function () {
                                 send('Read rules at http://yourphotomake.info/rules.');
                             });
                         }
