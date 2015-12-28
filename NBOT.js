@@ -78,7 +78,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' Here is your **[image](https://placehold.it/600x200?text=' + encodeURIComponent(args) + ")**.");
+            send(':' + id + ' Here is your **[image](https://placehold.it/800x300/095/fff.png?text=' + encodeURIComponent(args) + ")**.");
         }
     }
 };
