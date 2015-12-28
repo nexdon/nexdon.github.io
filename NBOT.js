@@ -39,6 +39,8 @@ function send(text, cb, errored, throttleTime) {
         }
     });
 }
+
+
 window.botCommand = {
     test: function (id) {
         send(':' + id + ' This is a test message!');
@@ -69,6 +71,14 @@ window.botCommand = {
             send(':' + id + ' Nothing to kill!');
         } else {
             send(':' + id + ' killed ' + args);
+        }
+    }, imagetext: function (id, args) {
+        args = args || '';
+        console.log(args);
+        if (!args.trim()) {
+            send(':' + id + ' Please add text!');
+        } else {
+            send(':' + id + ' Here is your **[image](https://placehold.it/600x200?text=' + encodeURIComponent(args) + ")**.");
         }
     }
 };
