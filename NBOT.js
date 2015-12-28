@@ -1,3 +1,42 @@
+var wsAuthRequest = new XMLHttpRequest();
+var roomId = 1; // change this if necessary
+wsAuthRequest.onreadystatechange = function() {
+    if (wsAuthRequest.readyState == XMLHttpRequest.DONE) {
+        console.log(wsAuthRequest.responseText);
+        var json = JSON.parse(wsAuthRequest.responseText);
+        var wsUrl = json['url'] + "?l=" + Date.now();
+        var socket = new WebSocket(wsUrl);
+        socket.onopen = function() { console.log('Socket opened!'); }
+        socket.onmessage = function(e) {
+            var parsed = JSON.parse(e.data);
+            if (parsed['r' + roomId] !== undefined) {
+                var roomJson = parsed['r' + roomId];
+                if (roomJson['e'] !== undefined) {
+                    var eventJsons = roomJson['e'];
+                    for (var i = 0; i < eventJsons.length; i++) {
+                        var eventJson = eventJsons[i];
+                        if (eventJson['event_type'] == 1) {
+                            console.log('Message posted: ' + eventJson['content']);
+                        }
+                    }
+                }
+            }
+        };
+        socket.onclose = function() { console.log('Socket closed!'); }
+    }
+};
+var params = "roomid=" + roomId + "&fkey=" + fkey().fkey
+wsAuthRequest.open("POST", "http://chat.stackexchange.com/ws-auth"); // change chat server if necessary
+wsAuthRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+wsAuthRequest.setRequestHeader("Content-length", params.length);
+wsAuthRequest.setRequestHeader("Connection", "close");
+wsAuthRequest.send(params);
+if (eventJson['event_type'] == 1) {
+                        console.log('Message posted: ' + eventJson['content']);
+} else if (eventJson['event_type'] == 3) {
+	var username = eventJson['user_name'];
+	$.post('http://chat.stackoverflow.com/chats/' + $("input[name='room']").val() + '/messages/new', {text: ' welcome to ' + $("roomname").text(), fkey: fkey().fkey});
+}
 function say1() {
 	$.post('http://chat.stackoverflow.com/chats/' + $("input[name='room']").val() + '/messages/new', {
 			text: '**[NBOT]** Read rules at http://yourphotomake.info/rules.', 
