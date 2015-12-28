@@ -53,11 +53,7 @@ $(function () {
             '.visit-cms {' +
             'position: absolute;' +
             ' top: 0px; ' +
-<<<<<<< HEAD
             'right: 30px;' +
-=======
-            'right: 0px;' +
->>>>>>> 12d8e0bd241059c31f72728d3947268604db4d1b
             '}'
         ));
 
@@ -67,7 +63,6 @@ $(function () {
         $('<a class="nitem visit-cms">').attr('href', 'http://yourphotomake.info/cms/admin735').attr('target', '_blank').text('Visit CMS')
     ).append($('<br>')).append(
         $('<a class="nitem">').click(function () {
-<<<<<<< HEAD
             send('Read rules at http://yourphotomake.info/rules.');
         }).text('Rules Message')
     ).append($('<br>')).append(
@@ -76,16 +71,6 @@ $(function () {
         }).text('Welcome Message')
     ).append($('<br>')).append(
         $('<input id="ntb" type="text" placeholder="Your bold message">')
-=======
-            send('**[NBOT]** Read rules at http://yourphotomake.info/rules.');
-        }).text('Rules Message')
-    ).append($('<br>')).append(
-        $('<a class="nitem">').click(function () {
-            send('**[NBOT]** Hi there, welcome to PHP, MYSQL, HTML, CSS, JS, JQ!');
-        }).text('Welcome Message')
-    ).append($('<br>')).append(
-        $('<input id="ntb" type="text" placeholder="Your message">')
->>>>>>> 12d8e0bd241059c31f72728d3947268604db4d1b
     ).append(
         $('<input type="button" value="Send">').click(function () {
             send($('#ntb').val());
@@ -108,7 +93,6 @@ $(function () {
                             console.log('Message posted: ' + eventJson['content']);
                         } else if (eventJson['event_type'] == 3) {
                             var username = eventJson['user_name'];
-<<<<<<< HEAD
                             send('Hello, @' + username.replace(/[!@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '') + '! If you have not read the rules, please do so.', function () {
                                 send('Read rules at http://yourphotomake.info/rules.');
                                 function testCommand() { return "Test!"; };
@@ -127,10 +111,6 @@ $(function () {
                                             }
                                         }
                                     }
-=======
-                            send('**[NBOT]** Hello, @' + username.replace(/[!@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '') + '! If you have not read the rules, please do so.', function () {
-                                send('**[NBOT]** Read rules at http://yourphotomake.info/rules.');
->>>>>>> 12d8e0bd241059c31f72728d3947268604db4d1b
                             });
                         }
                     }
