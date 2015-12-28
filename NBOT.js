@@ -41,6 +41,11 @@ function send(text, cb, errored, throttleTime) {
 }
 window.botCommand = {
     test: function (id) {
+        send(':' + id + ' This is test message!');
+    }, cat: function (id) {
+        send(':' + id + ' http://i.imgur.com/BqceIC5.gif');
+    }, gandalf: function (id) {
+        send(':' + id + ' http://i.imgur.com/HxuZr0e.gif');
         send(':' + id + ' test');
     }, listcommands: function (id) {
         var commands = [];
@@ -57,6 +62,14 @@ window.botCommand = {
             send(':' + id + ' Nothing to echo!');
         } else {
             send(':' + id + ' `' + args + '`');
+        }
+    }, kill: function (id, args) {
+        args = args || '';
+        console.log(args);
+        if (!args.trim()) {
+            send(':' + id + ' Nothing to kill!');
+        } else {
+            send(':' + id + ' killed ' + args);
         }
     }
 };
