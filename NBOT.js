@@ -61,8 +61,8 @@ function setupWS() {
                         if (eventJson['event_type'] == 1) {
                             console.log('Message posted: ' + eventJson['content']);
                             var message = eventJson['content'];
-                            if (!!message.match(/^\+\w+ ?.+?$/)) {
-                                var commandParts = message.split(/^\+(\w+) ?(.+)?$/).filter(function (e) {
+                            if (!!message.match(/^\+\w+ ?.*$/)) {
+                                var commandParts = message.split(/^\+(\w+) ?(.*)$/).filter(function (e) {
                                     return !!e;
                                 });
                                 var command = commandParts[0];
