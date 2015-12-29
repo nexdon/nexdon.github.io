@@ -2,8 +2,8 @@
 // @name NBOT Autocomplete
 // @description NBot Script
 // @downloadURL https://http://nexdon.github.io/NBOT-UserScript.user.js
-// @match http://chat.stackoverflow.com/rooms/
-// @version 1.0.0
+// @match http://chat.stackoverflow.com/rooms/97149/*
+// @version 1.0.1
 // ==/UserScript==
 
 function findAutocompleteCommandNames(name) {
