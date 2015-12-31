@@ -162,7 +162,6 @@ var onload = function () {
             $('<input type="button" value="Send">').click(function () {
                 send($('#ntb').val());
                 $('#ntb').val('');
-
         }).append (
             $('<input id="imagetext" type="text" placeholder="Your image text">')
         ).append (
@@ -175,7 +174,6 @@ var onload = function () {
             $('<a id="tup"></a>')
         ).append (
             $('</div>')
-        )
      )));
 
         setupWS();
