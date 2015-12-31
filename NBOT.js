@@ -1,5 +1,6 @@
 window.sendStack = 0;
 
+var time = Math.floor(Date.now() / 1000);
 function send(text, cb, errored, throttleTime) {
     if (text.length > 500 && text.indexOf('\n') == -1) {
         // Message too long!
