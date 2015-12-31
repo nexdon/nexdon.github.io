@@ -161,8 +161,8 @@ var onload = function () {
             $('<input id="ntb" type="text" placeholder="Your bold message">')
         ).append(
             $('<input type="button" value="Send">').click(function () {
-                send($('#ntb').val());
-                $('#ntb').val('d');
+                send('**' + $('#ntb').val() + '**');
+                $('#ntb').val('');
             })
         ));
 
