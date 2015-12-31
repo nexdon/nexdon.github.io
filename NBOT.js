@@ -176,7 +176,7 @@ var onload = function () {
         ).append (
             $('</div>')
         )
-     ));
+     )));
 
         setupWS();
     } else {
