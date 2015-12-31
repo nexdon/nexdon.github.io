@@ -1,8 +1,5 @@
 window.sendStack = 0;
 
-function sendcp(text) {
-     $("#nbot-box").prepend("<p>" + text + "</p>");
-}
 function send(text, cb, errored, throttleTime) {
     if (text.length > 500) {
         // Message too long!
@@ -185,22 +182,8 @@ var onload = function () {
             $('<input type="button" value="Send">').click(function () {
                 send($('#ntb').val());
                 $('#ntb').val('');
-        }).append (
-            $('<input id="imagetext" type="text" placeholder="Your image text">')
-        ).append (
-            $('<input type="button" value="imagetext">').click(function () {
-                sendcp('<b>Here is your</b> <a href="http://dummyimage.com/1000x500/000/fff?text=' + $('#imagetext').val() + '">imagetext</a>.');
-                $('#imagetext').val('');
-        }).append (
-            $('<div class="nubox" id="nubox">')
-        ).append (
-            $('<a id="tup"></a>')
-        ).append (
-             $('</div>')
-        ).append (
-             $('</div>')
-        )
-     )));
+        })
+     ));
 
         setupWS();
     } else {
