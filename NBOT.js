@@ -92,16 +92,13 @@ function setupWS() {
 
 }
 var onload = function () {
-    $.get('http://nexdon.github.io/NBOT-Commands.js').done(function (data) {
-        eval(data);
-    });
     if (!window.nbotWS) {
         $('head').append(
             $('<style>').text(
                 '.nbot {' +
                 'position: relative;' +
                 'width: 350px;' +
-                'height: 500px;' +
+                'height: auto;' +
                 'border: 3px solid #333;' +
                 'background-color: #333' +
                 '}' +
@@ -141,6 +138,32 @@ var onload = function () {
                 'position: absolute;' +
                 ' top: 0px; ' +
                 'right: 30px;' +
+                '}' +
+                ' .nubox {' +
+                'width: 330px;' +
+                'height: 200px;' +
+                'border: 1px solid #ccc;' +
+                'font: 16px/26px Georgia, Garamond, Serif;' +
+                'overflow: auto;' +
+                '}' +
+                ' .nubox p {' +
+                'border-bottom: 1px solid #ccc;' +
+                'margin-top: 10px;' +
+                'margin-bottom: 10px;' +
+                'margin-left: 0px;' +
+                'font-size: 14px;' +
+                'font-family: helvetica;' +
+                '}' +
+                ' .nutitle {' +
+                'width: 330px;' +
+                'height: 30px;' +
+                'font-size: 20px;' +
+                'font-weight: bold;' +
+                'border: 1px solid #ccc;' +
+                'background: #ccc;' +
+                'font-family: helvetica;' +
+                'line-height: 30px;' +
+                'text-align: center;' +
                 '}'
             ));
 
@@ -174,6 +197,7 @@ var onload = function () {
             $('<a id="tup"></a>')
         ).append (
             $('</div>')
+        )
      )));
 
         setupWS();
