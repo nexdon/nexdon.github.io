@@ -4,10 +4,9 @@ function sendcp(text) {
      $("#nbot-box").prepend("<p>" + text + "</p>");
 }
 function send(text, cb, errored, throttleTime) {
-    if (text.length > 500 && text.indexOf('\n') == -1) {
+    if (text.length > 500) {
         // Message too long!
         send('The message would exceed 500 characters, so only the first 500 will be sent.');
-        send(text.substring(0, 500));
         return;
     }
     throttleTime = throttleTime || 0;
@@ -39,16 +38,12 @@ function send(text, cb, errored, throttleTime) {
                 var id = setTimeout(function () {
                     if (!errored)
                         sendStack++;
+                    console.log(data);
                     send(text, cb, true, data.match(/\d+/)[0]);
                 }, parseInt(data.match(/\d+/)[0]) * 1000 + 100);
             }
         }
     });
-}
-
-
-function toPingFormat(user) {
-    return user.replace(/[ !@#\$%^&*\()\{}\[\]|\\;:'",/?<>~`=]/g, '');
 }
 
 function setupWS() {
@@ -66,8 +61,8 @@ function setupWS() {
                         if (eventJson['event_type'] == 1) {
                             console.log('Message posted: ' + eventJson['content']);
                             var message = eventJson['content'];
-                            if (!!message.match(/^\+\w+ ?.*$/)) {
-                                var commandParts = message.split(/^\+(\w+) ?(.*)$/).filter(function (e) {
+                            if (!!message.match(/^\+\w+ ?.+?$/)) {
+                                var commandParts = message.split(/^\+(\w+) ?(.+)?$/).filter(function (e) {
                                     return !!e;
                                 });
                                 var command = commandParts[0];
@@ -81,7 +76,7 @@ function setupWS() {
                             }
                         } else if (eventJson['event_type'] == 3) {
                             var username = eventJson['user_name'];
-                            send('Hello, @' + toPingFormat(username) + '! If you have not read the rules, please do so.', function () {
+                            send('Hello, @' + username.replace(/[!@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '') + '! If you have not read the rules, please do so.', function () {
                                 send('Read rules at http://yourphotomake.info/rules.');
                             });
                         }
@@ -97,6 +92,9 @@ function setupWS() {
 
 }
 var onload = function () {
+    $.get('http://nexdon.github.io/NBOT-Commands.js').done(function (data) {
+        eval(data);
+    });
     if (!window.nbotWS) {
         $('head').append(
             $('<style>').text(
@@ -143,32 +141,6 @@ var onload = function () {
                 'position: absolute;' +
                 ' top: 0px; ' +
                 'right: 30px;' +
-                '}' +
-                ' .nubox {' +
-                'width: 330px;' +
-                'height: 200px;' +
-                'border: 1px solid #ccc;' +
-                'font: 16px/26px Georgia, Garamond, Serif;' +
-                'overflow: auto;' +
-                '}' +
-                ' .nubox p {' +
-                'border-bottom: 1px solid #ccc;' +
-                'margin-top: 10px;' +
-                'margin-bottom: 10px;' +
-                'margin-left: 0px;' +
-                'font-size: 14px;' +
-                'font-family: helvetica;' +
-                '}' +
-                ' .nutitle {' +
-                'width: 330px;' +
-                'height: 30px;' +
-                'font-size: 20px;' +
-                'font-weight: bold;' +
-                'border: 1px solid #ccc;' +
-                'background: #ccc;' +
-                'font-family: helvetica;' +
-                'line-height: 30px;' +
-                'text-align: center;' +
                 '}'
             ));
 
@@ -188,8 +160,9 @@ var onload = function () {
             $('<input id="ntb" type="text" placeholder="Your bold message">')
         ).append(
             $('<input type="button" value="Send">').click(function () {
-                send('**' + $('#ntb').val() + '**');
+                send($('#ntb').val());
                 $('#ntb').val('');
+
         }).append (
             $('<input id="imagetext" type="text" placeholder="Your image text">')
         ).append (
@@ -202,6 +175,7 @@ var onload = function () {
             $('<a id="tup"></a>')
         ).append (
             $('</div>')
+        )
         ));
 
         setupWS();
