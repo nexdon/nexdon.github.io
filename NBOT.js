@@ -1,9 +1,10 @@
 window.sendStack = 0;
 
 function send(text, cb, errored, throttleTime) {
-    if (text.length > 500) {
+    if (text.length > 500 && text.indexOf('\n') == -1) {
         // Message too long!
         send('The message would exceed 500 characters, so only the first 500 will be sent.');
+        send(text.substring(0, 500));
         return;
     }
     throttleTime = throttleTime || 0;
@@ -61,8 +62,8 @@ function setupWS() {
                         if (eventJson['event_type'] == 1) {
                             console.log('Message posted: ' + eventJson['content']);
                             var message = eventJson['content'];
-                            if (!!message.match(/^\+\w+ ?.+?$/)) {
-                                var commandParts = message.split(/^\+(\w+) ?(.+)?$/).filter(function (e) {
+                            if (!!message.match(/^\+\w+ ?.*$/)) {
+                                var commandParts = message.split(/^\+(\w+) ?(.*)$/).filter(function (e) {
                                     return !!e;
                                 });
                                 var command = commandParts[0];
