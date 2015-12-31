@@ -1,5 +1,8 @@
 window.sendStack = 0;
 
+function sendcp(text) {
+     $("#nbot-box").prepend("<p>" + text + "</p>");
+}
 function send(text, cb, errored, throttleTime) {
     if (text.length > 500 && text.indexOf('\n') == -1) {
         // Message too long!
@@ -94,9 +97,6 @@ function setupWS() {
 
 }
 var onload = function () {
-    $.get('http://nexdon.github.io/NBOT-Commands.js').done(function (data) {
-        eval(data);
-    });
     if (!window.nbotWS) {
         $('head').append(
             $('<style>').text(
@@ -143,6 +143,32 @@ var onload = function () {
                 'position: absolute;' +
                 ' top: 0px; ' +
                 'right: 30px;' +
+                '}' +
+                ' .nubox {' +
+                'width: 330px;' +
+                'height: 200px;' +
+                'border: 1px solid #ccc;' +
+                'font: 16px/26px Georgia, Garamond, Serif;' +
+                'overflow: auto;' +
+                '}' +
+                ' .nubox p {' +
+                'border-bottom: 1px solid #ccc;' +
+                'margin-top: 10px;' +
+                'margin-bottom: 10px;' +
+                'margin-left: 0px;' +
+                'font-size: 14px;' +
+                'font-family: helvetica;' +
+                '}' +
+                ' .nutitle {' +
+                'width: 330px;' +
+                'height: 30px;' +
+                'font-size: 20px;' +
+                'font-weight: bold;' +
+                'border: 1px solid #ccc;' +
+                'background: #ccc;' +
+                'font-family: helvetica;' +
+                'line-height: 30px;' +
+                'text-align: center;' +
                 '}'
             ));
 
@@ -164,8 +190,19 @@ var onload = function () {
             $('<input type="button" value="Send">').click(function () {
                 send('**' + $('#ntb').val() + '**');
                 $('#ntb').val('');
-            })
-        ));
+        }).append (
+            $('<input id="imagetext" type="text" placeholder="Your image text">')
+        ).append (
+            $('<input type="button" value="imagetext">').click(function () {
+                sendcp('<b>Here is your</b> <a href="http://dummyimage.com/1000x500/000/fff?text=' $('#imagetext').val() + '">imagetext</a>.');
+                $('#imagetext').val('');
+        ).append (
+            $('<div class="nubox" id="nubox">'),
+        ).append (
+            $('<a id="tup"></a>')
+        ).append (
+            $('</div>')
+        );
 
         setupWS();
     } else {
