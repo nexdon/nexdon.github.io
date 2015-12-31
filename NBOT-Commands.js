@@ -620,13 +620,7 @@ window.botCommand = {
         send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
     }, time: function () {
         var currentdate = new Date(); 
-    var datetime = "Now: " + currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " - "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
-        send("Time: " document.write(datetime));
+        send("Time: " currentdate.getHours() + ":"  + currentdate.getMinutes() + ":" + currentdate.getSeconds());
     }, sniper: function (id, args) {
         args = args || '';
         if (!args.trim()) {
@@ -670,3 +664,10 @@ window.botCommand = {
         }
     }
 };
+        var currentdate = new Date(); 
+    var datetime = "Now: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " - "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
