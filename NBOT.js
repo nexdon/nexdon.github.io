@@ -101,7 +101,7 @@ var onload = function () {
                 '.nbot {' +
                 'position: relative;' +
                 'width: 350px;' +
-                'height: auto;' +
+                'height: 500px;' +
                 'border: 3px solid #333;' +
                 'background-color: #333' +
                 '}' +
