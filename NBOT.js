@@ -196,13 +196,13 @@ var onload = function () {
             $('<input type="button" value="imagetext">').click(function () {
                 sendcp('<b>Here is your</b> <a href="http://dummyimage.com/1000x500/000/fff?text=' $('#imagetext').val() + '">imagetext</a>.');
                 $('#imagetext').val('');
-        ).append (
+        }).append (
             $('<div class="nubox" id="nubox">'),
         ).append (
             $('<a id="tup"></a>')
         ).append (
             $('</div>')
-        ));
+        );
 
         setupWS();
     } else {
