@@ -574,6 +574,7 @@ function getBlock(text) {
 }
 
 window.botCommand = {
+    var d = new Date();
     test: function (id) {
         send(':' + id + ' This is a test message!');
     }, cat: function (id) {
@@ -619,7 +620,6 @@ window.botCommand = {
     }, rules: function (id) {
         send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
     }, time: function (id, d) {
-        var d = new Date();
         send(':' + id + ' Time: ' d.getHours() + d.getMinutes() + d.getSeconds() + '.');
     }, sniper: function (id, args) {
         args = args || '';
