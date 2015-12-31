@@ -195,8 +195,6 @@ var onload = function () {
             $('<div class="nubox" id="nubox">')
         ).append (
             $('<a id="tup"></a>')
-        ).append (
-            $('</div>')
         )
      )));
 
