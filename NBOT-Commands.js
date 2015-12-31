@@ -426,8 +426,8 @@ window.botCommand = {
         } else {
             send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
         }
-    }, rules: function () {
-        send('Read rules at http://yourphotomake.info/rules.');
+    }, rules: function (id) {
+        send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
     }, sniper: function (id, args) {
         args = args || '';
         if (!args.trim()) {
