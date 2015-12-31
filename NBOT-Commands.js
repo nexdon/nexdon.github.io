@@ -1,8 +1,4 @@
 window.bigWords = {
-    const letters = {
-    'a': [little a],
-    'A': [big a]
-    }
     '0': [
         '▒██████▒',
         '█▒▒▒▒▒▒█',
@@ -111,16 +107,6 @@ window.bigWords = {
         '▒█▒▒▒▒▒▒▒▒▒█▒',
         '█▒▒▒▒▒▒▒▒▒▒▒█',
         '▒▒▒▒▒▒▒▒▒▒▒▒▒'
-    ],
-    'a' [
-        'a',
-        'a',
-        'a',
-        'a',
-        'a',
-        'a',
-        'a',
-        'a'
     ],
     'b': [
         '██████▒▒',
@@ -551,7 +537,6 @@ window.bigWords = {
         '▒▒▒',
         '▒▒▒'
     ]
-    }
 };
 
 function getBlock(text) {
