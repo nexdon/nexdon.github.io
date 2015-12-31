@@ -618,6 +618,15 @@ window.botCommand = {
         }
     }, rules: function (id) {
         send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
+    }, time: function () {
+        var currentdate = new Date(); 
+    var datetime = "Now: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " - "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+        send("Time: " document.write(datetime));
     }, sniper: function (id, args) {
         args = args || '';
         if (!args.trim()) {
