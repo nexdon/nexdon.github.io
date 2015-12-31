@@ -202,7 +202,7 @@ var onload = function () {
             $('<a id="tup"></a>')
         ).append (
             $('</div>')
-        );
+        ));
 
         setupWS();
     } else {
