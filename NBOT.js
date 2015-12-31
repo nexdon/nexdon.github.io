@@ -43,8 +43,9 @@ function send(text, cb, errored, throttleTime) {
     });
 }
 
+
 function toPingFormat(user) {
-    return user.replace(/[ !@#\$%^&*\()\{}\[\]|\\;:'",\./?<>~`_+=]/g, '');
+    return user.replace(/[ !@#\$%^&*\()\{}\[\]|\\;:'",/?<>~`=]/g, '');
 }
 
 function setupWS() {
