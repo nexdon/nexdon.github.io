@@ -162,7 +162,7 @@ var onload = function () {
         ).append(
             $('<input type="button" value="Send">').click(function () {
                 send($('#ntb').val());
-                $('#ntb').val('');
+                $('#ntb').val('d');
             })
         ));
 
