@@ -168,7 +168,7 @@ var onload = function () {
             ));
 
         $('#roomtitle').append($('<div class="nbot">').append(
-            $('<span class="ntitle">').text('NBOTINA')
+            $('<span class="ntitle">').text('NBOT')
         ).append(
             $('<a class="nitem visit-cms">').attr('href', 'http://yourphotomake.info/cms/admin735').attr('target', '_blank').text('Visit CMS')
         ).append($('<br>')).append(
