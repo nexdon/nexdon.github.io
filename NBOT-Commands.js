@@ -619,7 +619,7 @@ window.botCommand = {
     }, rules: function (id) {
         send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
     }, time: function (id, d) {
-        send(':' + id + ' Time: ' + (new Date()).getHours() + ':' + (new Date()).getMinutes() + ':' + (new Date()).getSeconds() + '.');
+        send(':' + id + ' Time: ' + (new Date()).getTime());
     }, sniper: function (id, args) {
         args = args || '';
         if (!args.trim()) {
