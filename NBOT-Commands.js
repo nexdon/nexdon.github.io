@@ -632,7 +632,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Mooooo, nothing to say!');
         } else {
-            send(':' + id + ' **[Moooooo](cowsay.morecode.org/say?message=' + encodeURIComponent(args) + ')!**')
+            send(':' + id + ' **[Moooooo](http://cowsay.morecode.org/say?message=' + encodeURIComponent(args) + ')!**')
         }
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
