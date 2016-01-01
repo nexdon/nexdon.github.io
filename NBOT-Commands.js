@@ -632,9 +632,13 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Mooooo, nothing to say!')
         } else {
-            send(':' + id +
-                $.get( "http://cowsay.morecode.org/say?message=" + args, function( data ) {
-                $( ".cow" ).html( data );
+            send(
+'<' + args + '>',
+'         \   ^__^ ',
+'          \  (oo)\_______',
+'             (__)\       )\/\',
+'                 ||----w |',
+'                 ||     ||''
             );
 });
         }
