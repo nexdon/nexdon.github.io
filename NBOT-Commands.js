@@ -574,8 +574,8 @@ function getBlock(text) {
 }
 
 window.botCommand = {
-    test: function (id) {
-        send(':' + id + ' This is a test message!');
+    alive: function (id) {
+        send(':' + id + ' Yes, I am!');
     }, cat: function (id) {
         send(':' + id + ' http://i.imgur.com/BqceIC5.gif');
     }, gandalf: function (id) {
@@ -618,8 +618,9 @@ window.botCommand = {
         }
     }, rules: function (id) {
         send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
-    }, time: function (id, d) {
+    }, time: function (id) {
         send(':' + id + ' **Time:** ' + Date());
+    }, 
     }, sniper: function (id, args) {
         args = args || '';
         if (!args.trim()) {
@@ -634,12 +635,63 @@ window.botCommand = {
         } else {
             send(':' + id + ' ' + args + '\n'
 + ' ‌ ‌ ‌ ‌ ‌ ‌^__^ \n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌ (oo)\_______ \n'
++ ' ‌ ‌ ‌ ‌ ‌ ‌ (oo)\______ \n'
 + ' ‌ ‌ ‌ ‌ ‌ ‌ (__)\ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ )/ \n'
 + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ||-----w | \n'
 + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ || ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌||'
                 );
         }
+    }, help: function(id, args) {
+        args = args || '';
+        if (args == 'cowSay') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> to send a cow message.*');
+        }
+        if (args == 'kill') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to kill someone.*');
+        }
+        if (args == 'sniper') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to kill someone with a sniper.*');
+        }
+        if (args == 'bigWord') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> to send a big letter message.*');
+        }
+        if (args == 'bigLogo') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a huge NBOT logo.*');
+        }
+        if (args == 'time') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to see what time is.*');
+        }
+        if (args == 'gandalf') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a dancing gandalf gif.*');
+        }
+        if (args == 'cat') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a cat gif.*');
+        }
+        if (args == 'slap') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to slap someone.*');
+        }
+        if (args == 'rules') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to read rules.*');
+        }
+        if (args == 'imagetext') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to create imagetext.*');
+        }
+        if (args == 'echo') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> and NBOT will repeat.*');
+        }
+        if (args == 'listcommands') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to list all commands.*');
+        }
+        if (args == 'alive') {
+            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to see NBOT status. (useless)*');
+        }
+        if (args == 0) {
+            send(':' + id + ' **Usage:** *+help <command>*');
+        }
+        else {
+            send(':' + id + ' **Unknown command:** *do +listcommand to see all commands.*');
+        }
+    }
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
 ▒▒▒█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒▒████████████▒▒▒▒▒██████████████▒▒███████████████████▒▒▒\n\
