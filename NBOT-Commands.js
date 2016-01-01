@@ -627,6 +627,17 @@ window.botCommand = {
         } else {
             send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + ' [ @' + toPingFormat(args) + ' was killed by a sniper! ]')
         }
+    }, cowSay: function(id, args) {
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Mooooo, nothing to say!')
+        } else {
+            send(':' + id +
+                $.get( "http://cowsay.morecode.org/say?message=" + args, function( data ) {
+                $( ".cow" ).html( data );
+            );
+});
+        }
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
 ▒▒▒█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒▒████████████▒▒▒▒▒██████████████▒▒███████████████████▒▒▒\n\
