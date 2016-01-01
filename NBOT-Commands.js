@@ -633,6 +633,7 @@ window.botCommand = {
             send(':' + id + ' Mooooo, nothing to say!')
         } else {
             send(':' + id + ' **[Mooooo](http://cowsay.morecode.org/say?message=' + encodeURIComponent(args) + ')**.');
+    }
 });
         }
     }, bigLogo: function () {
