@@ -632,12 +632,12 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Mooooo, nothing to say!');
         } else {
-            send(':' + id + ' '
-		'        L   ^__^',
-		'         L  (e)\\_______',
-		'            (__)\\       )\\/\\',
-		'             T ||----w |',
-		'                ||     ||'
+            send(':' + id + ' ' + args + '\n'
++ '          \   ^__^ \n'
++ '           \  (oo)\_______ \n'
++ '              (__)\       )\/\ \n'
++ '                  ||----w | \n'
++ '                  ||     ||'
                 );
         }
     }, bigLogo: function () {
