@@ -638,7 +638,7 @@ window.botCommand = {
 + '          \  (oo)\_______ \n'
 + '             (__)\       )\/\ \n'
 + '                 ||----w | \n'
-+ '                 ||     ||` \n'
++ '                 ||     ||`'
                 );
         }
     }, bigLogo: function () {
