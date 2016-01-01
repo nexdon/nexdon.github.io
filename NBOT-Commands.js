@@ -643,49 +643,49 @@ window.botCommand = {
         }
     }, help: function(id, args) {
         args = args || '';
-        if (args == 'cowSay') {
+        if (args.val() == 'cowSay') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> to send a cow message.*');
         }
-        if (args == 'kill') {
+        if (args.val() == 'kill') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to kill someone.*');
         }
-        if (args == 'sniper') {
+        if (args.val() == 'sniper') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to kill someone with a sniper.*');
         }
-        if (args == 'bigWord') {
+        if (args.val() == 'bigWord') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> to send a big letter message.*');
         }
-        if (args == 'bigLogo') {
-            send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a huge NBOT logo.*');
+        if (args.val() == 'bigLogo') {
+            args.val()(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a huge NBOT logo.*');
         }
-        if (args == 'time') {
+        if (args.val() == 'time') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to see what time is.*');
         }
-        if (args == 'gandalf') {
+        if (args.val() == 'gandalf') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a dancing gandalf gif.*');
         }
-        if (args == 'cat') {
+        if (args.val() == 'cat') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to send a cat gif.*');
         }
-        if (args == 'slap') {
+        if (args.val() == 'slap') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <username> to slap someone.*');
         }
-        if (args == 'rules') {
+        if (args.val() == 'rules') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to read rules.*');
         }
-        if (args == 'imagetext') {
+        if (args.val() == 'imagetext') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to create imagetext.*');
         }
-        if (args == 'echo') {
+        if (args.val() == 'echo') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> and NBOT will repeat.*');
         }
-        if (args == 'listcommands') {
+        if (args.val() == 'listcommands') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to list all commands.*');
         }
-        if (args == 'alive') {
+        if (args.val() == 'alive') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' to see NBOT status. (useless)*');
         }
-        if (args == 0) {
+        if (!args.trim()) {
             send(':' + id + ' **Usage:** *+help <command>*');
         }
         else {
