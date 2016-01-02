@@ -566,7 +566,7 @@ var helpTexts = {
     cat: '`use +cat to send a cat gif.`',
     gandalf: '`use +gandalf to send a gandalf gif.`',
     listcommands: '`use +listcommands to list all commands.`',
-    echo '`type +echo <text> in chat and NBOT will repeat that message.`',
+    echo: '`type +echo <text> in chat and NBOT will repeat that message.`',
     imagetext: '`use +imagetext <text> to create a text image.`',
     catLang: '`use +catLang <text> to translate to lolcat language.`',
     bigLogo: '`to send a huge NBOT logo just type +bigLogo in chat.`',
