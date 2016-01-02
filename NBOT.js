@@ -49,47 +49,49 @@ function toPingFormat(user) {
 
 function setupWS() {
     $.post('/ws-auth', {fkey: fkey().fkey, roomid: $("input[name='room']").val()}).success(function (data) {
-        window.nbotWS = new WebSocket(data.url + '?l=' + +new Date);
-        roomId = $("input[name='room']").val();
-        nbotWS.onmessage = function (e) {
-            var parsed = JSON.parse(e.data);
-            if (parsed['r' + roomId] !== undefined) {
-                var roomJson = parsed['r' + roomId];
-                if (roomJson['e'] !== undefined) {
-                    var eventJsons = roomJson['e'];
-                    for (var i = 0; i < eventJsons.length; i++) {
-                        var eventJson = eventJsons[i];
-                        if (eventJson['event_type'] == 1) {
-                            console.log('Message posted: ' + eventJson['content']);
-                            var message = eventJson['content'];
-                            if (!!message.match(/^\+\w+ ?.*$/)) {
-                                var commandParts = message.split(/^\+(\w+) ?(.*)$/).filter(function (e) {
-                                    return !!e;
-                                });
-                                var command = commandParts[0];
-                                if (!botCommand[command]) {
-                                    send('Sorry, I do not know the comand ' + command + '. To list the command, do `+listcommands`');
-                                    return;
+            window.nbotWS = new WebSocket(data.url + '?l=' + +new Date);
+            roomId = $("input[name='room']").val();
+            nbotWS.onmessage = function (e) {
+                var parsed = JSON.parse(e.data);
+                if (parsed['r' + roomId] !== undefined) {
+                    var roomJson = parsed['r' + roomId];
+                    if (roomJson['e'] !== undefined) {
+                        var eventJsons = roomJson['e'];
+                        for (var i = 0; i < eventJsons.length; i++) {
+                            var eventJson = eventJsons[i];
+                            if (eventJson['event_type'] == 1) {
+                                console.log('Message posted: ' + eventJson['content']);
+                                var message = eventJson['content'];
+                                if (!!message.match(/^\+\w+ ?.+$/)) {
+                                    var commandParts = message.split(/^\+(\w+) ?(.+)$/).filter(function (e) {
+                                        return !!e;
+                                    });
+                                    var command = commandParts[0];
+                                    if (!botCommand[command]) {
+                                        send('Sorry, I do not know the command ' + command + '. To list the command, do `+listcommands`');
+                                        return;
+                                    }
+                                    var args = $('<a>').html(commandParts[1]).text();
+                                    var id = eventJson['message_id'];
+                                    botCommand[command](id, args);
                                 }
-                                var args = commandParts[1];
-                                var id = eventJson['message_id'];
-                                botCommand[command](id, args);
                             }
-                        } else if (eventJson['event_type'] == 3) {
-                            var username = eventJson['user_name'];
-                            send('Hello, @' + toPingFormat(username) + '! If you have not read the rules, please do so.', function () {
-                                send('Read rules at http://yourphotomake.info/rules.');
-                            });
+                            else if (eventJson['event_type'] == 3) {
+                                var username = eventJson['user_name'];
+                                send('Hello, @' + toPingFormat(username) + '! If you have not read the rules, please do so.', function () {
+                                    send('Read rules at http://yourphotomake.info/rules.');
+                                });
+                            }
                         }
                     }
                 }
-            }
-        };
-        nbotWS.onclose = function () {
-            console.log('Socket closed!');
-        };
+            };
+            nbotWS.onclose = function () {
+                console.log('Socket closed!');
+            };
 
-    });
+        }
+    );
 
 }
 var onload = function () {

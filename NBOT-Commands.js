@@ -633,14 +633,14 @@ window.botCommand = {
             send(':' + id + ' Mooooo, nothing to say!');
         } else {
             send(':' + id + ' ' + args + '\n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌^__^ \n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌ (oo)\______ \n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌ (__)\ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ )/ \n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ||-----w | \n'
-+ ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ || ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌||'
-                );
+                + ' ‌ ‌ ‌ ‌ ‌ ‌^__^ \n'
+                + ' ‌ ‌ ‌ ‌ ‌ ‌ (oo)\______ \n'
+                + ' ‌ ‌ ‌ ‌ ‌ ‌ (__)\ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ )/ \n'
+                + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ||-----w | \n'
+                + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ || ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌||'
+            );
         }
-    }, help: function(id, args) {
+    }, help: function (id, args) {
         args = args || '';
         if (args.val() == 'cowSay') {
             send(':' + id + ' **command ' + args + '** \n' + '*Use +' + args + ' <text> to send a cow message.*');
@@ -713,7 +713,7 @@ window.botCommand = {
     }, bigWord: function (id, args) {
         args = args || '';
         if (!args.trim()) {
-            send('Nothing!');
+            send(':' + id + ' Nothing!');
             return;
         }
         try {
@@ -722,7 +722,19 @@ window.botCommand = {
                 return '    ' + e;
             }).join('\n'));
         } catch (e) {
-            send(': ' + id + ' Sorry, your word contains unsupported characters!');
+            send(':' + id + ' Sorry, your word contains unsupported characters!');
         }
+    }, catLang: function (id, args) {
+        args = args || '';
+        if (!args.trim()) args = 'What? Nothing???';
+        if (!!localStorage[args]) {
+            console.log('Args cached!');
+            send(':' + id + ' ' + localStorage[args]);
+        } else
+            $.get('http://allow-any-origin.appspot.com/http://speaklolcat.com/?from=' + encodeURI(args)).success(function (data) {
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("#to").textContent;
+                send(':' + id + ' ' + translated);
+                localStorage[args] = translated;
+            });
     }
 };
