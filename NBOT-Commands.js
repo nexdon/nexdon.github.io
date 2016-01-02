@@ -561,8 +561,20 @@ window.bigWords = {
 };
 
 var helpTexts = {
-    cowSay: '+cowSay <text> to send a cow message',
-    kill: '+kill <username> to kill someone'
+    cowSay: '`use +cowSay <text> to send a cow message.`',
+    kill: '`use +kill <username> to kill someone.`',
+    cat: '`use +cat to send a cat gif.`',
+    gandalf: '`use +gandalf to send a gandalf gif.`',
+    listcommands: '`use +listcommands to list all commands.`',
+    echo '`type +echo <text> in chat and NBOT will repeat that message.`',
+    imagetext: '`use +imagetext <text> to create a text image.`',
+    catLang: '`use +catLang <text> to translate to lolcat language.`',
+    bigLogo: '`to send a huge NBOT logo just type +bigLogo in chat.`',
+    bigText: '`use +bigText <text> to send a message with huge letters.`',
+    slap: '`use +slap <username> to slap someone.`',
+    time: '`use +time to see current time.`',
+    sniper: '`use +sniper to kill someone with a sniper.`',
+    help: '`use +help <command>, not +help help.`'
 };
 
 function getBlock(text) {
@@ -579,9 +591,7 @@ function getBlock(text) {
 }
 
 window.botCommand = {
-    alive: function (id) {
-        send(':' + id + ' Yes, I am!');
-    }, cat: function (id) {
+    cat: function (id) {
         send(':' + id + ' http://i.imgur.com/BqceIC5.gif');
     }, gandalf: function (id) {
         send(':' + id + ' http://i.imgur.com/HxuZr0e.gif');
@@ -621,8 +631,6 @@ window.botCommand = {
         } else {
             send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
         }
-    }, rules: function (id) {
-        send(':' + id + ' Read rules at http://yourphotomake.info/rules.');
     }, time: function (id) {
         send(':' + id + ' **Time:** ' + new Date());
     }, sniper: function (id, args) {
