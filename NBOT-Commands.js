@@ -715,9 +715,9 @@ window.botCommand = {
             send(':' + id + ' ' + localStorage[args]);
         } else
             $.get('http://allow-any-origin.appspot.com/http://isithackday.com/arrpi.php?text=' + encodeURI(args)).success(function (data) {
-                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
-                send(':' + id + ' ' + translated);
-                localStorage[args] = translated;
+                var translated2 = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
+                send(':' + id + ' ' + translated2);
+                localStorage[args] = translated2;
             });
     }
 };
