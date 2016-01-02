@@ -707,5 +707,17 @@ window.botCommand = {
                 send(':' + id + ' ' + translated);
                 localStorage[args] = translated;
             });
+   }, pirateLang: function (id, args) {
+        args = args || '';
+        if (!args.trim()) args = 'What? Nothing???';
+        if (!!localStorage[args]) {
+            console.log('Args cached!');
+            send(':' + id + ' ' + localStorage[args]);
+        } else
+            $.get('http://allow-any-origin.appspot.com/http://isithackday.com/arrpi.php?text=' + encodeURI(args)).success(function (data) {
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
+                send(':' + id + ' ' + translated);
+                localStorage[args] = translated;
+            });
     }
 };
