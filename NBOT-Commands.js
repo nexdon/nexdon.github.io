@@ -709,15 +709,15 @@ window.botCommand = {
             });
    }, pirateLang: function (id, args) {
         args = args || '';
-        if (!args.trim()) args = 'What? Nothing???';
-        if (!!localStorage[args]) {
+        if (!args.trim()) args = 'Nothing to say on pirate lang???';
+        if (!!localStorage2[args]) {
             console.log('Args cached!');
-            send(':' + id + ' ' + localStorage[args]);
+            send(':' + id + ' ' + localStorage2[args]);
         } else
             $.get('http://allow-any-origin.appspot.com/http://isithackday.com/arrpi.php?text=' + encodeURI(args)).success(function (data) {
-                var translated2 = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
-                send(':' + id + ' ' + translated2);
-                localStorage[args] = translated2;
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
+                send(':' + id + ' ' + translated);
+                localStorage2[args] = translated;
             });
     }
 };
