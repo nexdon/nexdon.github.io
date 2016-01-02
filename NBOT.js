@@ -60,10 +60,10 @@ function setupWS() {
                         for (var i = 0; i < eventJsons.length; i++) {
                             var eventJson = eventJsons[i];
                             if (eventJson['event_type'] == 1) {
-                                console.log('Message posted: ' + eventJson['content']);
-                                var message = eventJson['content'];
+                                console.log('Message posted: ' + $('<a>').html(eventJson['content']).text());
+                                var message = $('<a>').html(eventJson['content']).text();
                                 if (!!message.match(/^\+\w+ ?.+$/)) {
-                                    var commandParts = message.split(/^\+(\w+) ?(.+)$/).filter(function (e) {
+                                    var commandParts = message.split(/^\+(\w+) ?(.+)?$/).filter(function (e) {
                                         return !!e;
                                     });
                                     var command = commandParts[0];
@@ -71,7 +71,8 @@ function setupWS() {
                                         send('Sorry, I do not know the command ' + command + '. To list the command, do `+listcommands`');
                                         return;
                                     }
-                                    var args = $('<a>').html(commandParts[1]).text();
+                                    var args = undefined;
+                                    if (!!commandParts[1]) args = $('<a>').html(commandParts[1]).text();
                                     var id = eventJson['message_id'];
                                     botCommand[command](id, args);
                                 }
