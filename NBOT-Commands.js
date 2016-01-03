@@ -1,3 +1,6 @@
+if (!localStorage.catLang) localStorage.catLang = {};
+if (!localStorage.pirateLang) localStorage.pirateLang = {};
+
 window.bigWords = {
     '0': [
         '▒██████▒',
@@ -698,14 +701,24 @@ window.botCommand = {
     }, catLang: function (id, args) {
         args = args || '';
         if (!args.trim()) args = 'What? Nothing???';
-        if (!!localStorage[args]) {
-            console.log('Args cached!');
-            send(':' + id + ' ' + localStorage[args]);
+        if (!!localStorage.catLang[args]) {
+            send(':' + id + ' ' + localStorage.catLang[args]);
         } else
             $.get('http://allow-any-origin.appspot.com/http://speaklolcat.com/?from=' + encodeURI(args)).success(function (data) {
                 var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("#to").textContent;
                 send(':' + id + ' ' + translated);
-                localStorage[args] = translated;
+                localStorage.catLang[args] = translated;
+            });
+    }, pirateLang: function (id, args) {
+        args = args || '';
+        if (!args.trim()) args = 'Nothing to say on pirate lang???';
+        if (!!localStorage.pirateLang[args]) {
+            send(':' + id + ' ' + localStorage.pirateLang[args]);
+        } else
+            $.get('http://allow-any-origin.appspot.com/http://isithackday.com/arrpi.php?text=' + encodeURI(args)).success(function (data) {
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("body").textContent;
+                send(':' + id + ' ' + translated);
+                localStorage.pirateLang[args] = translated;
             });
     }
 };
