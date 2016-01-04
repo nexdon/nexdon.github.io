@@ -614,7 +614,17 @@ var memes = {
     lol: 'http://www.memes.at/faces/lol_crazy.jpg',
     gtfo: 'http://www.memes.at/faces/gtfo.jpg',
     slap: 'http://www.memes.at/faces/slap.gif',
-    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap.`'
+    omega_troll: 'http://www.memes.at/faces/omega_troll.jpg',
+    gasp: 'http://www.memes.at/faces/gasp.jpg',
+    cat_gasp: 'http://www.memes.at/faces/gaspcat_with_glasses.jpg',
+    troll_rapper: 'http://www.memes.at/faces/rapper.gif',
+    wut: 'http://www.memes.at/faces/wut.jpg',
+    cereal_guy: 'http://www.memes.at/faces/cereal_guy_original.jpg',
+    cereal_guy_spitting: 'http://www.memes.at/faces/cereal_guy_spitting.jpg',
+    gusta_okay: 'http://www.memes.at/faces/me_gusta_vs_okay.gif',
+    u_jelly: 'http://www.memes.at/faces/u_jelly_low.jpg',
+    u_mad: 'http://www.memes.at/faces/u_mad_troll.gif',
+    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap, omega_troll, gasp, cat_gasp, troll_rapper, wut, cereal_guy, cereal_guy_spitting, gusta_okay, u_jelly, u_mad.`'
 };
 
 function getBlock(text) {
