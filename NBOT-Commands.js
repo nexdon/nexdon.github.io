@@ -578,6 +578,7 @@ var helpTexts = {
     time: '`use +time to see current time.`',
     sniper: '`use +sniper to kill someone with a sniper.`',
     help: '`use +help <command>, not +help help.`'
+    meme: '`use +meme <meme> to display meme or +meme list to list memes.`'
 };
 var memes = {
     trollface: 'http://www.memes.at/faces/troll_face.jpg',
@@ -687,7 +688,7 @@ window.botCommand = {
     }, meme: function (id, args) {
         args = args || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
-            if (!memes[args]) send(':' + id + ' `There is no ' + args + ' meme! Do` +meme list `to list memes!`'); else
+            if (!memes[args]) send(':' + id + ' http://i.imgur.com/7LfdB4I.gif'); else
             send(':' + id + ' ' + memes[args])
         }
     }, bigLogo: function () {
