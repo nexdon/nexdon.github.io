@@ -583,7 +583,13 @@ var memes = {
     trollface: 'http://www.memes.at/faces/troll_face.jpg',
     yes: 'http://i3.kym-cdn.com/photos/images/newsfeed/000/208/666/yes..jpg',
     no: 'http://i0.kym-cdn.com/entries/icons/original/000/007/423/untitle.JPG',
-    okay: 'http://www.memes.at/faces/okay_guy.jpg'
+    okay: 'http://www.memes.at/faces/okay_guy.jpg',
+    me_gusta: 'http://pre05.deviantart.net/b6f5/th/pre/f/2011/285/4/c/me_gusta_by_rober_raik-d4clrpu.png',
+    me_gusta_creepy: 'http://www.memes.at/faces/me_gusta_creepy.jpg',
+    me_gangsta: 'http://www.memes.at/faces/me_gangsta.jpg',
+    ich_mag: 'http://www.memes.at/faces/ich_mag_gusta.jpg',
+    me_gusta_facedance: 'http://www.memes.at/faces/me_gusta_facedance_low.gif',
+    mother_of_gusta: 'http://www.memes.at/faces/mother_of_gusta.jpg',
 };
 
 function getBlock(text) {
