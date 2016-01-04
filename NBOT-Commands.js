@@ -646,15 +646,12 @@ window.botCommand = {
     }, cowSay: function (id, args) {
         args = args || '';
         if (!args.trim()) {
-            send(':' + id + ' Mooooo, nothing to say!');
+            send(':' + id + ' Mooooo, nothing to say???');
         } else {
-            send(':' + id + ' ' + args + '\n'
-                + ' ‌ ‌ ‌ ‌ ‌ ‌^__^ \n'
-                + ' ‌ ‌ ‌ ‌ ‌ ‌ (oo)\______ \n'
-                + ' ‌ ‌ ‌ ‌ ‌ ‌ (__)\ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ )/ \n'
-                + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ||-----w | \n'
-                + ' ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ || ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌||'
-            );
+            $.get('http://allow-any-origin.appspot.com/http://cowsay.morecode.org/say?message=' + encodeURI(args) + '&format=text').success(function (data) {
+                var translated = data;
+                send(':' + id + '\n' + '`' + translated + '`');
+            });
         }
     }, help: function (id, args) {
         args = args || '';
