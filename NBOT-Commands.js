@@ -583,24 +583,7 @@ var memes = {
     trollface: 'http://www.memes.at/faces/troll_face.jpg',
     yes: 'http://i3.kym-cdn.com/photos/images/newsfeed/000/208/666/yes..jpg',
     no: 'http://i0.kym-cdn.com/entries/icons/original/000/007/423/untitle.JPG',
-    okay: 'http://www.memes.at/faces/okay_guy.jpg',
-    me-gusta: 'http://pre05.deviantart.net/b6f5/th/pre/f/2011/285/4/c/me_gusta_by_rober_raik-d4clrpu.png',
-    me-gusta-creepy: 'http://www.memes.at/faces/me_gusta_creepy.jpg',
-    me-gangsta: 'http://www.memes.at/faces/me_gangsta.jpg',
-    ich-mag: 'http://www.memes.at/faces/ich_mag_gusta.jpg',
-    me-gusta-facedance: 'http://www.memes.at/faces/me_gusta_facedance_low.gif',
-    mother-of-gusta: 'http://www.memes.at/faces/mother_of_gusta.jpg',
-    trollgusta: 'http://www.memes.at/faces/troll_gusta.jpg',
-    indeed: 'http://www.memes.at/faces/indeed.jpg',
-    facepalm: 'http://www.memes.at/faces/facepalm_picard.jpg',
-    spiderman: 'http://www.memes.at/faces/spiderpman.jpg',
-    badass: 'http://www.memes.at/faces/got_a_badass.jpg',
-    you-dont-say: 'http://www.memes.at/faces/you_dont_say.jpg',
-    troll-dancing: 'http://www.memes.at/faces/troll_dancing.gif',
-    so-hardcore: 'http://www.memes.at/faces/so_hardcore.jpg',
-    genius: 'http://www.memes.at/faces/genius.jpg',
-    not-bad: 'http://www.memes.at/faces/obama_not_bad.jpg',
-    list: '`The memes are: trollface, yes, no, okay, me-gusta, me-gusta-creepy, me-gangsta, ich-mag, me-gusta facedance, mother-of-gusta, troll-gusta, indeed, facepalm, spiderman, badass, you-dont-say, troll-dance, so-hardcore, genius, not-bad. `'
+    okay: 'http://www.memes.at/faces/okay_guy.jpg'
 };
 
 function getBlock(text) {
