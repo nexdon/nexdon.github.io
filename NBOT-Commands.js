@@ -579,6 +579,14 @@ var helpTexts = {
     sniper: '`use +sniper to kill someone with a sniper.`',
     help: '`use +help <command>, not +help help.`'
 };
+var memes = {
+    trollface: 'http://www.memes.at/faces/troll_face.jpg',
+    yes: 'http://i3.kym-cdn.com/photos/images/newsfeed/000/208/666/yes..jpg',
+    no: 'http://i0.kym-cdn.com/entries/icons/original/000/007/423/untitle.JPG',
+    okay: 'http://www.memes.at/faces/okay_guy.jpg',
+    list: '`The memes are: trollface, yes, no, okay.`'
+    
+};
 
 function getBlock(text) {
     var out = [];
@@ -659,6 +667,14 @@ window.botCommand = {
             if (!botCommand[args]) send(':' + id + ' No such command bro.'); else {
                 if (!helpTexts[args]) send(':' + id + ' Sorry, the help for that command is not done yet!'); else
                     send(':' + id + ' ' + helpTexts[args])
+            }
+        }
+    }, meme: function (id, args) {
+        args = args || '';
+        if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
+            if (!botCommand[args]) send(':' + id + ' No such command bro.'); else {
+                if (!helpTexts[args]) send(':' + id + ' `There is no' + args + 'meme! Do` +meme list `to list memes!`'); else
+                    send(':' + id + ' ' + memes[args])
             }
         }
     }, bigLogo: function () {
