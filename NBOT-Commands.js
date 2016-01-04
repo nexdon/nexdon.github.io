@@ -597,7 +597,7 @@ var memes = {
     spiderman: 'http://www.memes.at/faces/spiderpman.jpg',
     badass: 'http://www.memes.at/faces/got_a_badass.jpg',
     you_dont_say: 'http://www.memes.at/faces/you_dont_say.jpg',
-    troll_dancing: 'http://www.memes.at/faces/troll_dancing.gif',
+    troll_dance: 'http://www.memes.at/faces/troll_dancing.gif',
     so_hardcore: 'http://www.memes.at/faces/so_hardcore.jpg',
     genius: 'http://www.memes.at/faces/genius.jpg',
     not_bad: 'http://www.memes.at/faces/obama_not_bad.jpg',
