@@ -3,8 +3,7 @@ window.sendStack = 0;
 function send(text, cb, errored, throttleTime) {
     if (text.length > 500 && text.indexOf('\n') == -1) {
         // Message too long!
-        send('The message would exceed 500 characters, so only the first 500 will be sent.');
-        send(text.substring(0, 500));
+        send(text += '\n     ');
         return;
     }
     throttleTime = throttleTime || 0;
