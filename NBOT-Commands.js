@@ -577,7 +577,7 @@ var helpTexts = {
     slap: '`use +slap <username> to slap someone.`',
     time: '`use +time to see current time.`',
     sniper: '`use +sniper to kill someone with a sniper.`',
-    help: '`use +help <command>, not +help help.`'
+    help: '`use +help <command>, not +help help.`',
     meme: '`use +meme <meme> to display meme or +meme list to list memes.`'
 };
 var memes = {
