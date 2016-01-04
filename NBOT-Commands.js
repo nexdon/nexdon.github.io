@@ -592,7 +592,7 @@ var memes = {
     me_gusta_facedance: 'http://www.memes.at/faces/me_gusta_facedance_low.gif',
     mother_of_gusta: 'http://www.memes.at/faces/mother_of_gusta.jpg',
     troll_gusta: 'http://www.memes.at/faces/troll_gusta.jpg',
-    me_trollista: 'http://i.stack.imgur.com/w0bUw.png',
+    me_trollista: 'http://i.imgur.com/r711BhC.png',
     indeed: 'http://www.memes.at/faces/indeed.jpg',
     facepalm: 'http://www.memes.at/faces/facepalm_picard.jpg',
     spiderman: 'http://www.memes.at/faces/spiderpman.jpg',
