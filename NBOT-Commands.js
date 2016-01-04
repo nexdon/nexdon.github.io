@@ -671,9 +671,8 @@ window.botCommand = {
     }, meme: function (id, args) {
         args = args || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
-                if (!memes[args]) send(':' + id + ' `There is no' + args + 'meme! Do` +meme list `to list memes!`'); else
-                    send(':' + id + ' ' + memes[args])
-            }
+            if (!memes[args]) send(':' + id + ' `There is no' + args + 'meme! Do` +meme list `to list memes!`'); else
+            send(':' + id + ' ' + memes[args])
         }
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
