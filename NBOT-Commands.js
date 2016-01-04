@@ -701,7 +701,7 @@ window.botCommand = {
     }, meme: function (id, args) {
         args = args || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
-            if (!memes[args]) send(':' + id + ' http://i.imgur.com/7LfdB4I.gif'); else
+            if (!memes[args]) send(':' + id + ' http://i.imgur.com/W6J1NCR.gif'); else
             send(':' + id + ' ' + memes[args])
         }
     }, bigLogo: function () {
