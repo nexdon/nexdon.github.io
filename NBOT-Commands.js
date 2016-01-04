@@ -602,7 +602,19 @@ var memes = {
     so_hardcore: 'http://www.memes.at/faces/so_hardcore.jpg',
     genius: 'http://www.memes.at/faces/genius.jpg',
     not_bad: 'http://www.memes.at/faces/obama_not_bad.jpg',
-    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad.`'
+    ba_dum_no: 'http://i3.kym-cdn.com/photos/images/original/000/585/635/90d.png',
+    ba_dum_tsss: 'http://i2.kym-cdn.com/photos/images/newsfeed/000/038/677/badumtss.png',
+    crying: 'http://www.memes.at/faces/crying.jpg',
+    derp: 'http://www.memes.at/faces/herp_derp.jpg',
+    kitten: 'http://www.memes.at/faces/kitteh_smile.jpg',
+    sir: 'http://www.memes.at/faces/like_a_sir.jpg',
+    jesus: 'http://www.memes.at/faces/jesus.jpg',
+    jackie_chan: 'http://www.memes.at/faces/jackie_chan.jpg',
+    challenge-accepted: 'http://www.memes.at/faces/challenge_accepted.jpg',
+    lol: 'http://www.memes.at/faces/lol_crazy.jpg',
+    gtfo: 'http://www.memes.at/faces/gtfo.jpg',
+    slap: 'http://www.memes.at/faces/slap.gif',
+    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap.`'
 };
 
 function getBlock(text) {
