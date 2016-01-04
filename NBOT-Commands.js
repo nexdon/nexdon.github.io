@@ -673,7 +673,7 @@ window.botCommand = {
         args = args || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
             if (!botCommand[args]) send(':' + id + ' No such command bro.'); else {
-                if (!helpTexts[args]) send(':' + id + ' `There is no' + args + 'meme! Do` +meme list `to list memes!`'); else
+                if (!memes[args]) send(':' + id + ' `There is no' + args + 'meme! Do` +meme list `to list memes!`'); else
                     send(':' + id + ' ' + memes[args])
             }
         }
