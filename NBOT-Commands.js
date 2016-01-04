@@ -590,6 +590,17 @@ var memes = {
     ich_mag: 'http://www.memes.at/faces/ich_mag_gusta.jpg',
     me_gusta_facedance: 'http://www.memes.at/faces/me_gusta_facedance_low.gif',
     mother_of_gusta: 'http://www.memes.at/faces/mother_of_gusta.jpg',
+    troll_gusta: 'http://www.memes.at/faces/troll_gusta.jpg',
+    indeed: 'http://www.memes.at/faces/indeed.jpg',
+    facepalm: 'http://www.memes.at/faces/facepalm_picard.jpg',
+    spiderman: 'http://www.memes.at/faces/spiderpman.jpg',
+    badass: 'http://www.memes.at/faces/got_a_badass.jpg',
+    you_dont_say: 'http://www.memes.at/faces/you_dont_say.jpg',
+    troll_dancing: 'http://www.memes.at/faces/troll_dancing.gif',
+    so_hardcore: 'http://www.memes.at/faces/so_hardcore.jpg',
+    genius: 'http://www.memes.at/faces/genius.jpg',
+    not_bad: 'http://www.memes.at/faces/obama_not_bad.jpg',
+    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad.`'
 };
 
 function getBlock(text) {
