@@ -79,8 +79,8 @@ function setupWS() {
                             }
                             else if (eventJson['event_type'] == 3) {
                                 var username = eventJson['user_name'];
-                                send('Hello, @' + toPingFormat(username) + '! If you have not read the rules, please do so.', function () {
-                                    send('Read rules at http://yourphotomake.info/rules.');
+                                send('', function () {
+                                    send(''); //I removed auto message.
                                 });
                             }
                         }
