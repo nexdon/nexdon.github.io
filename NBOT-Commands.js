@@ -610,7 +610,7 @@ var memes = {
     sir: 'http://www.memes.at/faces/like_a_sir.jpg',
     jesus: 'http://www.memes.at/faces/jesus.jpg',
     jackie_chan: 'http://www.memes.at/faces/jackie_chan.jpg',
-    challenge-accepted: 'http://www.memes.at/faces/challenge_accepted.jpg',
+    challenge_accepted: 'http://www.memes.at/faces/challenge_accepted.jpg',
     lol: 'http://www.memes.at/faces/lol_crazy.jpg',
     gtfo: 'http://www.memes.at/faces/gtfo.jpg',
     slap: 'http://www.memes.at/faces/slap.gif',
