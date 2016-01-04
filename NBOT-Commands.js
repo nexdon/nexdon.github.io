@@ -627,6 +627,15 @@ var memes = {
     kill: 'http://www.memes.at/faces/kill.gif',
     bitch_please: 'http://www.memes.at/faces/fuck_that_yao_ming.jpg',
     fap: 'http://www.memes.at/faces/fap.jpg',
+    like_a_boss: 'https://s-media-cache-ak0.pinimg.com/236x/fe/69/dd/fe69dd59dfe5eecefb3f3b9baebc635a.jpg',
+    knife_self: 'http://www.memes.at/faces/knife_self.jpg',
+    haters_gonna_hate: 'http://www.memes.at/faces/haters_gonna_hate_animation.gif',
+    fuck_yeah: 'http://www.memes.at/faces/fuck_yeah.jpg',
+    boring_cat: 'http://data.whicdn.com/images/48039365/large.gif',
+    forever_alone: 'http://www.memes.at/faces/forever_alone_clean.jpg',
+    forever_alone_dance: 'http://www.memes.at/faces/forever_alone_dancing.gif',
+    high: 'http://www.memes.at/faces/high.jpg',
+    nyan_cat: 'http://www.memes.at/faces/nyancat.gif',
     list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap, omega_troll, gasp, cat_gasp, troll_rapper, wut, cereal_guy, cereal_guy_spitting, gusta_okay, u_jelly, u_mad, kill, bitch_please, fap.`'
 };
 
