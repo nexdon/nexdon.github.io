@@ -601,7 +601,7 @@ var memes = {
     so_hardcore: 'http://www.memes.at/faces/so_hardcore.jpg',
     genius: 'http://www.memes.at/faces/genius.jpg',
     not_bad: 'http://www.memes.at/faces/obama_not_bad.jpg',
-    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad.`'
+    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad.`'
 };
 
 function getBlock(text) {
