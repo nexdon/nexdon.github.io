@@ -637,7 +637,8 @@ var memes = {
     high: 'http://www.memes.at/faces/high.jpg',
     nyan_cat: 'http://www.memes.at/faces/nyancat.gif',
     pretty_badass: 'http://www.memes.at/faces/pretty_badass.jpg',
-    maximum_trolling: 'http://www.memes.at/faces/maximum_trolling.gif'
+    maximum_trolling: 'http://www.memes.at/faces/maximum_trolling.gif',
+    trolling: 'http://www.memes.at/faces/troll_typing_animation.gif'
 };
 
 function getBlock(text) {
