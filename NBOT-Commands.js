@@ -727,8 +727,6 @@ window.botCommand = {
             if (!memes[args]) send(':' + id + ' http://i.imgur.com/W6J1NCR.gif'); else
             send(':' + id + ' ' + memes[args])
         }
-    }, listmemes: function (id) {
-        send(':' + id + 'The memes are: `' + memesArray,join(', ') + '`')
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
 ▒▒▒█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒▒████████████▒▒▒▒▒██████████████▒▒███████████████████▒▒▒\n\
