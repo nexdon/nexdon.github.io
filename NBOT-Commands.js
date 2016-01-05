@@ -638,7 +638,7 @@ var memes = {
     nyan_cat: 'http://www.memes.at/faces/nyancat.gif',
     pretty_badass: 'http://www.memes.at/faces/pretty_badass.jpg',
     maximum_trolling: 'http://www.memes.at/faces/maximum_trolling.gif',
-    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap, omega_troll, gasp, cat_gasp, troll_rapper, wut, cereal_guy, cereal_guy_spitting, gusta_okay, u_jelly, u_mad, kill, bitch_please, fap, like_a_boss, knife_self, haters_gonna_hate, fuck_yeah, boring_cat, forever_alone, forever_alone_dance, high, nyan_cat, pretty_badass.`'
+    list: '`The memes are: trollface, yes, no, okay, me_gusta, me_gusta_creepy, me_gangsta, ich_mag, me_gusta_facedance, mother_of_gusta, troll_gusta, indeed, facepalm, spiderman, badass, you_dont_say, troll_dance, so_hardcore, genius, not_bad, me_trollista , ba_dum_no, ba_dum_tsss, crying, derp, kitten, sir, jesus, jackie_chan, challenge_accepted, lol, gtfo, slap, omega_troll, gasp, cat_gasp, troll_rapper, wut, cereal_guy, cereal_guy_spitting, gusta_okay, u_jelly, u_mad, kill, bitch_please, fap, like_a_boss, knife_self, haters_gonna_hate, fuck_yeah, boring_cat, forever_alone, forever_alone_dance, high, nyan_cat, pretty_badass, maximum_trolling.`'
 };
 
 function getBlock(text) {
