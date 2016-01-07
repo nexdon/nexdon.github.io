@@ -639,7 +639,7 @@ var memes = {
     pretty_badass: 'http://www.memes.at/faces/pretty_badass.jpg',
     maximum_trolling: 'http://www.memes.at/faces/maximum_trolling.gif',
     trolling: 'http://www.memes.at/faces/troll_typing_animation.gif',
-    list: 'this /n is /n test'
+    list: 'this \n is \n test'
 };
 
 function getBlock(text) {
