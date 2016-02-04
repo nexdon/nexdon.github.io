@@ -698,7 +698,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' **[Here is your image text](http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args) + ')**.');
+            send(':' + id + ' http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g,'%20') + '&.jpg');
         }
     }, slap: function (id, args) {
         args = args || '';
