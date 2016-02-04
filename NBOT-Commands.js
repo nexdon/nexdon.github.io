@@ -743,7 +743,7 @@ window.botCommand = {
         }
     }, rmeme: function (id) {
         var keys = Object.keys(memes);
-        send(':' + id + ' ' + return memes[keys[ keys.length * Math.random() << 0]]);
+        send(':' + id + ' ' + memes[keys[ keys.length * Math.random() << 0]]);
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
 ▒▒▒█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒▒████████████▒▒▒▒▒██████████████▒▒███████████████████▒▒▒\n\
