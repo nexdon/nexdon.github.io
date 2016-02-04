@@ -671,6 +671,13 @@ window.botCommand = {
             }
         }
         send(':' + id + ' The commands are: `' + commands.join('`, `') + '`');
+    }, greet: function (id, args) {
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Please enter name!');
+        } else {
+            send('Hello '+ args + '!');
+        }
     }, echo: function (id, args) {
         args = args || '';
         if (!args.trim()) {
