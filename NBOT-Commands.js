@@ -708,7 +708,6 @@ window.botCommand = {
         } else {
             send(':' + id + ' **lmgtfy:** http://lmgtfy.com/?q=' + encodeURIComponent(args).replace(/ /g,'%20'));
         }
-    }
     }, slap: function (id, args) {
         args = args || '';
         if (!args.trim()) {
