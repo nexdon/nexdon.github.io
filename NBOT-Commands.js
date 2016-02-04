@@ -642,7 +642,8 @@ var memes = {
     desk_flip: 'http://www.memes.at/faces/desk_flip.jpg',
     pokerface: 'http://www.memes.at/faces/pokerface_2_clean.jpg',
     seriously: 'http://www.memes.at/faces/seriously.jpg',
-    list: 'trollface \n yes \n no \n okay \n me_gusta \n me_gusta_creepy \n me_gangsta \n me_gusta_creepy \n ich_mag \n me_gusta_facedance \n mother_of_gusta \n troll_gusta \n me_trollista \n indeed \n facepalm \n spiderman \n badass \n you_dont_say \n troll_dance \n so_hardcore \n genius \n not_bad \n ba_dum_no \n ba_dum_tsss \n crying \n derp \n kitten \n sir \n jesus \n jackie_chan \n challenge_accepted \n lol \n gtfo \n slap \n omega_troll \n gasp \n cat_gasp \n troll_rapper \n wut \n cereal_guy \n cereal_guy_spitting \n gusta_okay \n u_jelly \n u_mad \n kill \n bitch_please \n fap \n like_a_boss \n knife_self \n haters_gonna_hate \n fuck_yeah \n boring_cat \n forever_alone \n forever_alone_dance \n high \n nyan_cat \n pretty_badass \n maximum_trolling \n trolling \n desk_flip \n pokerface'
+    kappa: 'http://i.imgur.com/nINsy5C.png',
+    list: 'trollface \n yes \n no \n okay \n me_gusta \n me_gusta_creepy \n me_gangsta \n me_gusta_creepy \n ich_mag \n me_gusta_facedance \n mother_of_gusta \n troll_gusta \n me_trollista \n indeed \n facepalm \n spiderman \n badass \n you_dont_say \n troll_dance \n so_hardcore \n genius \n not_bad \n ba_dum_no \n ba_dum_tsss \n crying \n derp \n kitten \n sir \n jesus \n jackie_chan \n challenge_accepted \n lol \n gtfo \n slap \n omega_troll \n gasp \n cat_gasp \n troll_rapper \n wut \n cereal_guy \n cereal_guy_spitting \n gusta_okay \n u_jelly \n u_mad \n kill \n bitch_please \n fap \n like_a_boss \n knife_self \n haters_gonna_hate \n fuck_yeah \n boring_cat \n forever_alone \n forever_alone_dance \n high \n nyan_cat \n pretty_badass \n maximum_trolling \n trolling \n desk_flip \n pokerface \n kappa'
 };
 
 function getBlock(text) {
