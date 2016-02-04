@@ -742,7 +742,8 @@ window.botCommand = {
             send(':' + id + ' ' + memes[args])
         }
     }, rmeme: function (id) {
-        var random = memes[Math.floor(Math.random() * memes.length)];
+        var keys = Object.keys(memes) 
+        var random = return memes[keys[ keys.length * Math.random() << 0]];
         send(':' + id + ' ' + random);
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
