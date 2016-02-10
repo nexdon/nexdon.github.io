@@ -705,15 +705,15 @@ window.botCommand = {
         var random = arr[Math.floor( Math.random() * arr.length )];
         var kills = [
             ' killed ' + args + ' with a shoe!',
-            args + ' is killed on toilet...',
+            ' ' + args + ' is killed on toilet...',
             ' killed ' + args + ' with a tail.',
-            args + ' is killed in a storm. `(cat storm)`',
-            args + ' is killed by ' + random,
-            args + ' is killed by santa meows!',
-            args + ' kissed ' + random + "'s sword!",
-            args + ' tried to swim in lava.',
-            args + ' touched pikachu!',
-            args + ' is killed by a sheep.'
+            ' ' + args + ' is killed in a storm. `(cat storm)`',
+            ' ' + args + ' is killed by ' + random,
+            ' ' + args + ' is killed by santa meows!',
+            ' ' + args + ' kissed ' + random + "'s sword!",
+            ' ' + args + ' tried to swim in lava.',
+            ' ' + args + ' touched pikachu!',
+            ' ' + args + ' is killed by a sheep.'
         ];
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
