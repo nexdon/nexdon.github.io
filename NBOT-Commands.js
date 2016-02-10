@@ -737,7 +737,8 @@ window.botCommand = {
             ', he ate ' + random + "'s banana!",
             ' for blaming someone!',
             ' for nothing.',
-            ' for being sexy!'
+            ' for being sexy!',
+            ' for beign being alien!'
         ];
         if (!args.trim()) {
             send(':' + id + ' Blame who??');
