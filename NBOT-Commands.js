@@ -709,6 +709,11 @@ window.botCommand = {
         } else {
             send(':' + id + ' killed ' + args);
         }
+    }, blame: function (id, args) {
+        var arr = new Array();
+        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        var random = arr[Math.floor( Math.random() * arr.length )];
+        send(':' + id + ' blame ' + random + '!');
     }, imagetext: function (id, args) {
         args = args || '';
         if (!args.trim()) {
