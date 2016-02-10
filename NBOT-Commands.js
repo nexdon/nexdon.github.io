@@ -706,7 +706,7 @@ window.botCommand = {
         var kills = [
             ' killed ' + args + ' with a shoe!',
             args + ' is killed on toilet...',
-            ' killed ' + args + ' with a tail.'
+            ' killed ' + args + ' with a tail.',
             args + ' is killed in a storm. `(cat storm)`',
             args + ' is killed by ' + random,
             args + ' is killed by santa meows!',
