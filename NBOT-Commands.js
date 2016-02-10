@@ -765,7 +765,9 @@ window.botCommand = {
             send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
         }
     }, time: function (id) {
-        send(':' + id + ' **Time:** ' + new Date());
+        $.get('http://www.timeanddate.com/worldclock/timezone/utc').success(function (data) {
+        var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("#ct").textContent;
+        send(':' + id + ' ' + translated);
     }, sniper: function (id, args) {
         args = args || '';
         var meters = Math.round(Math.random()*1000) + 1;
