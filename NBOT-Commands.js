@@ -781,7 +781,7 @@ window.botCommand = {
         } else {
             $.get('http://allow-any-origin.appspot.com/http://cowsay.morecode.org/say?message=' + encodeURI(args) + '&format=text').success(function (data) {
                 var translated = data;
-                send(':' + id + '\n' + '`    ' + translated + '`');
+                send('`' + translated + '`');
             });
         }
     }, help: function (id, args) {
