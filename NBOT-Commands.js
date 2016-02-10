@@ -765,7 +765,7 @@ window.botCommand = {
         } else {
             send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
         }
-    }, time: function (id) {
+    }, time: function (id, args) {
         args = args || '';
         if (!args.trim()) args = 'What? Nothing???';
         if (!!localStorage.time[args]) {
