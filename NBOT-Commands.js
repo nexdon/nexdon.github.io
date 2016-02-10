@@ -692,7 +692,7 @@ window.botCommand = {
         }
     }, online: function () {
         var arr = new Array(); 
-        var online = $("#present-users").children('li.present-user').find('img')[0].title;
+        var online = $("#present-users").children('li.present-user').each(function(){find('img')[0].title });
         send(online);
     }, kill: function (id, args) {
         args = args || '';
