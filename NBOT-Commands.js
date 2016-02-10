@@ -690,6 +690,9 @@ window.botCommand = {
         } else {
             send(':' + id + ' `' + args + '`');
         }
+    }, online: function () {
+        var users = $("#present-users").val();
+        send(users);
     }, kill: function (id, args) {
         args = args || '';
         if (!args.trim()) {
