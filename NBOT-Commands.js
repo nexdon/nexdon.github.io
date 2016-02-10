@@ -651,11 +651,6 @@ var memes = {
     art: 'http://www.boredpanda.com/blog/wp-content/uploads/2014/04/modern-photo-remakes-famous-paintings-1.jpg',
     list: 'trollface \n yes \n no \n okay \n me_gusta \n me_gusta_creepy \n me_gangsta \n me_gusta_creepy \n ich_mag \n me_gusta_facedance \n mother_of_gusta \n troll_gusta \n me_trollista \n indeed \n facepalm \n spiderman \n badass \n you_dont_say \n troll_dance \n so_hardcore \n genius \n not_bad \n ba_dum_no \n ba_dum_tsss \n crying \n derp \n kitten \n sir \n jesus \n jackie_chan \n challenge_accepted \n lol \n gtfo \n slap \n omega_troll \n gasp \n cat_gasp \n troll_rapper \n wut \n cereal_guy \n cereal_guy_spitting \n gusta_okay \n u_jelly \n u_mad \n kill \n bitch_please \n fap \n like_a_boss \n knife_self \n haters_gonna_hate \n fuck_yeah \n boring_cat \n forever_alone \n forever_alone_dance \n high \n nyan_cat \n pretty_badass \n maximum_trolling \n trolling \n desk_flip \n pokerface \n kappa'
 };
-protected = {
-    NiKoLaPrO,
-    nikolapro
-}
-
 function getBlock(text) {
     var out = [];
     for (var i = 0; i < 8; i++) {
@@ -706,8 +701,11 @@ window.botCommand = {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
-        } else if (args == protected[args]) {
-            send(':' + id + ' You cant kill ' + args + ', he is on "protected" list.');
+        } else if (args == 'random') {
+            var arr = new Array();
+            $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+            var random = arr[Math.floor( Math.random() * arr.length )];
+            send(':' + id + ' killed ' + random);
         } else {
             send(':' + id + ' killed ' + args);
         }
