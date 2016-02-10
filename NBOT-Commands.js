@@ -719,7 +719,7 @@ window.botCommand = {
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
         var random = arr[Math.floor( Math.random() * arr.length )];
-        var random2 = Math.floor(Math.random()*textArray.length);
+        var random2 = Math.floor(Math.random()*blame.length);
         var keys = Object.keys(blame);
         send(':' + id + ' blame ' + args + blame[random2]);
     }, imagetext: function (id, args) {
