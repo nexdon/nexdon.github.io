@@ -683,6 +683,8 @@ window.botCommand = {
         } else {
             send('Hello '+ args + '!');
         }
+    }, description: function (id) {
+        send(':' + id + ' ' $('#roomdesc').text());
     }, echo: function (id, args) {
         args = args || '';
         if (!args.trim()) {
