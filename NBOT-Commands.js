@@ -768,10 +768,11 @@ window.botCommand = {
         send(':' + id + ' **Time:** ' + new Date());
     }, sniper: function (id, args) {
         args = args || '';
+        var meters = Math.round(Math.random()*1000) + 1;
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill with a sniper!');
         } else {
-            send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + ' [ @' + toPingFormat(args) + ' was killed by a sniper! ]')
+            send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + '[' + meters + ' meters]')
         }
     }, cowSay: function (id, args) {
         args = args || '';
