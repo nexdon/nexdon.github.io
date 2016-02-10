@@ -765,17 +765,6 @@ window.botCommand = {
         } else {
             send(':' + id + ' *Slaps @' + toPingFormat(args) + '!*');
         }
-    }, time: function (id, args) {
-        args = args || '';
-        if (!args.trim()) args = 'What? Nothing???';
-        if (!!localStorage.time[args]) {
-            send(':' + id + ' ' + localStorage.time[args]);
-        } else
-            $.get('www.timeanddate.com/worldclock/' + encodeURI(args)).success(function (data) {
-                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector("#ct").textContent;
-                send(':' + id + ' ' + translated);
-                localStorage.time[args] = translated;
-            });
     }, sniper: function (id, args) {
         args = args || '';
         var meters = Math.round(Math.random()*1000) + 1;
