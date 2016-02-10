@@ -691,8 +691,9 @@ window.botCommand = {
             send(':' + id + ' `' + args + '`');
         }
     }, online: function () {
-        var arr = new Array(); 
-        var online = $("#present-users").children('li.present-user').each(function(){ send($(this).find('img')[0].title.join(", ")) });
+        var arr = new Array();
+        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        send(arr.join(', '));
     }, kill: function (id, args) {
         args = args || '';
         if (!args.trim()) {
