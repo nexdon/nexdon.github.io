@@ -700,15 +700,25 @@ window.botCommand = {
         send(':' + id + ' **Online users:** ' + arr.join(', ') + '.');
     }, kill: function (id, args) {
         args = args || '';
+        var arr = new Array();
+        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        var random = arr[Math.floor( Math.random() * arr.length )];
+        var kills = [
+            ' killed ' + args + ' with a shoe!',
+            args + ' is killed on toilet...',
+            ' killed ' + args + ' with a tail.'
+            args + ' is killed in a storm. `(cat storm)`',
+            args + ' is killed by ' + random,
+            args + ' is killed by santa meows!',
+            args + ' kissed ' + random + "'s sword!",
+            args + ' tried to swim in lava.',
+            args + ' touched pikachu!',
+            args + ' is killed by a sheep.'
+        ];
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
-        } else if (args == 'random') {
-            var arr = new Array();
-            $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-            var random = arr[Math.floor( Math.random() * arr.length )];
-            send(':' + id + ' killed ' + random);
         } else {
-            send(':' + id + ' killed ' + args);
+            send(':' + id + kills[Math.floor(Math.random()*kills.length)]);
         }
     }, blame: function (id, args) {
         args = args || '';
