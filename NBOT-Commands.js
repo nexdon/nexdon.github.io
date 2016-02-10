@@ -713,6 +713,7 @@ window.botCommand = {
     }, blame: function (id, args) {
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        var random = arr[Math.floor( Math.random() * arr.length )];
         var blame = [
             ' for throwing brick at ' + random + '!',
             ', he became a dog!',
