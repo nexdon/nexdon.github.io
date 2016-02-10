@@ -581,7 +581,9 @@ var helpTexts = {
     meme: '`use +meme <meme> to display meme or +meme list to list memes.`',
     rmeme: '`use +rmeme to display random meme.`',
     greet: '`use +greet to say hello to someone.`',
-    nbot: '`NBOT is SE chatbot created by UNIKITTY2.0 and NiKoLaPrO.`'
+    nbot: '`NBOT is SE chatbot created by UNIKITTY2.0 and NiKoLaPrO.`',
+    online: '`use +online to display online users.`',
+    description: '`use +description to display room descripton.`'
 };
 var memes = {
     trollface: 'http://www.memes.at/faces/troll_face.jpg',
