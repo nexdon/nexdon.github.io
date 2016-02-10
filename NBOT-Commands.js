@@ -772,7 +772,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill with a sniper!');
         } else {
-            send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + '[' + meters + ' meters]')
+            send(':' + id + '  **(　-_･)** ︻デ═一 ▸ `\u0008     \u0008` @' + toPingFormat(args) + ' [' + meters + ' meters]')
         }
     }, cowSay: function (id, args) {
         args = args || '';
