@@ -711,6 +711,7 @@ window.botCommand = {
             send(':' + id + ' killed ' + args);
         }
     }, blame: function (id, args) {
+        args = args || '';
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
         var random = arr[Math.floor( Math.random() * arr.length )];
