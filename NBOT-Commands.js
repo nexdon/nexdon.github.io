@@ -717,9 +717,21 @@ window.botCommand = {
         var blame = [
             ' for throwing brick at ' + random + '!',
             ', he became a dog!',
-            ' for being ' + random + '!'
+            ' for playing mario withouth ' + random + '!',
+            ', he became a troll!',
+            ' for being just like ' + random + '!',
+            ' for trying to kill ' + random + '.',
+            ', he lost his tail!',
+            ', he ate ' + random + "'s banana!",
+            ' for blaming someone!',
+            ' for nothing.',
+            ' for being sexy!'
         ];
-        send(':' + id + ' blame ' + args + blame[Math.floor(Math.random()*blame.length)]);
+        if (!args.trim()) {
+            send(':' + id + ' Blame who??');
+        } else {
+            send(':' + id + ' blame ' + args + blame[Math.floor(Math.random()*blame.length)]);
+        }
     }, imagetext: function (id, args) {
         args = args || '';
         if (!args.trim()) {
