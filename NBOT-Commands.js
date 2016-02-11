@@ -716,8 +716,22 @@ window.botCommand = {
             ' ' + args + ' touched pikachu!',
             ' ' + args + ' is killed by a sheep.'
         ];
+        var killsr = [
+            ' killed ' + random + ' with a shoe!',
+            ' ' + random + ' is killed on toilet...',
+            ' killed ' + random + ' with a tail.',
+            ' ' + random + ' is killed in a storm. `(cat storm)`',
+            ' ' + random + ' is killed by ' + random,
+            ' ' + random + ' is killed by santa meows!',
+            ' ' + random + ' kissed ' + random + "'s sword!",
+            ' ' + random + ' tried to swim in lava.',
+            ' ' + random + ' touched pikachu!',
+            ' ' + random + ' is killed by a sheep.'
+        ];
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
+        } else if (args == 'random') {
+            send(':' + id + killsr[Math.floor(Math.random()*killsr.length)]);
         } else {
             send(':' + id + kills[Math.floor(Math.random()*kills.length)]);
         }
