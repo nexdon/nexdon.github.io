@@ -706,7 +706,7 @@ window.botCommand = {
         var random = arr[Math.floor( Math.random() * arr.length )];
         var kills = [
             ' killed ' + args + ' with a shoe!',
-            ' ' + args + ' is killed on toilet...',
+            ' ' + args + ' tried to fly.',
             ' killed ' + args + ' with a tail.',
             ' ' + args + ' is killed in a storm. `(cat storm)`',
             ' ' + args + ' is killed by ' + random,
@@ -714,11 +714,17 @@ window.botCommand = {
             ' ' + args + ' kissed ' + random + "'s sword!",
             ' ' + args + ' tried to swim in lava.',
             ' ' + args + ' touched pikachu!',
-            ' ' + args + ' is killed by a sheep.'
+            ' ' + args + ' is killed by a sheep.',
+            ' ' + args + ' tried to kill ' + random + ', bad move.',
+            ' ' + args + ' said something bad about Chuck Norris...',
+            ' ' + args + ' jumped off the bridge. (during drought)',
+            ' ' + args + ' drowned, he tried to find spongebob.',
+            ' ' + args + ' committed suicide. (thanks to ' + random + ')',
+            ' ' + args + ' tried to kill death!'
         ];
         var killsr = [
             ' killed ' + random + ' with a shoe!',
-            ' ' + random + ' is killed on toilet...',
+            ' ' + args + ' tried to fly.',
             ' killed ' + random + ' with a tail.',
             ' ' + random + ' is killed in a storm. `(cat storm)`',
             ' ' + random + ' is killed by ' + random,
@@ -726,7 +732,13 @@ window.botCommand = {
             ' ' + random + ' kissed ' + random + "'s sword!",
             ' ' + random + ' tried to swim in lava.',
             ' ' + random + ' touched pikachu!',
-            ' ' + random + ' is killed by a sheep.'
+            ' ' + random + ' is killed by a sheep.',
+            ' ' + random + ' tried to kill ' + random + ', bad move.',
+            ' ' + random + ' said something bad about Chuck Norris...',
+            ' ' + random + ' jumped off the bridge. (during drought)',
+            ' ' + random + ' drowned, he tried to find spongebob.',
+            ' ' + random + ' committed suicide. (thanks to ' + random + ')',
+            ' ' + random + ' tried to kill death!'
         ];
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
