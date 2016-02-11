@@ -704,22 +704,23 @@ window.botCommand = {
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
         var random = arr[Math.floor( Math.random() * arr.length )];
+        var random2 = arr[Math.floor( Math.random() * arr.length )];
         var kills = [
             ' killed ' + args + ' with a shoe!',
             ' ' + args + ' tried to fly.',
             ' killed ' + args + ' with a tail.',
             ' ' + args + ' is killed in a storm. `(cat storm)`',
-            ' ' + args + ' is killed by ' + random,
+            ' ' + args + ' is killed by ' + random2,
             ' ' + args + ' is killed by santa meows!',
-            ' ' + args + ' kissed ' + random + "'s sword!",
+            ' ' + args + ' kissed ' + random2 + "'s sword!",
             ' ' + args + ' tried to swim in lava.',
             ' ' + args + ' touched pikachu!',
             ' ' + args + ' is killed by a sheep.',
-            ' ' + args + ' tried to kill ' + random + ', bad move.',
+            ' ' + args + ' tried to kill ' + random2 + ', bad move.',
             ' ' + args + ' said something bad about Chuck Norris...',
             ' ' + args + ' jumped off the bridge. (during drought)',
             ' ' + args + ' drowned, he tried to find spongebob.',
-            ' ' + args + ' committed suicide. (thanks to ' + random + ')',
+            ' ' + args + ' committed suicide. (thanks to ' + random2 + ')',
             ' ' + args + ' tried to kill death!'
         ];
         var killsr = [
@@ -727,17 +728,17 @@ window.botCommand = {
             ' ' + args + ' tried to fly.',
             ' killed ' + random + ' with a tail.',
             ' ' + random + ' is killed in a storm. `(cat storm)`',
-            ' ' + random + ' is killed by ' + random + '.',
+            ' ' + random + ' is killed by ' + random2 + '.',
             ' ' + random + ' is killed by santa meows!',
-            ' ' + random + ' kissed ' + random + "'s sword!",
+            ' ' + random + ' kissed ' + random2 + "'s sword!",
             ' ' + random + ' tried to swim in lava.',
             ' ' + random + ' touched pikachu!',
             ' ' + random + ' is killed by a sheep.',
-            ' ' + random + ' tried to kill ' + random + ', bad move.',
+            ' ' + random + ' tried to kill ' + random2 + ', bad move.',
             ' ' + random + ' said something bad about Chuck Norris...',
             ' ' + random + ' jumped off the bridge. (during drought)',
             ' ' + random + ' drowned, he tried to find spongebob.',
-            ' ' + random + ' committed suicide. (thanks to ' + random + ')',
+            ' ' + random + ' committed suicide. (thanks to ' + random2 + ')',
             ' ' + random + ' tried to kill death!'
         ];
         if (!args.trim()) {
