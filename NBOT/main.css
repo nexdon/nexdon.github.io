@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
 body {
 	background-image: url(http://i.imgur.com/8txKEQj.jpg);
 	background-position: top;
@@ -11,7 +12,7 @@ header {
 	background-color: rgba(0,0,0,0.8);
 	text-align: center;
 	color: rgba(256,256,256,0);
-	font-family: helvetica;
+	font-family: 'Roboto Slab', serif;
 	font-size: 30px;
 	transition: 2s;
 }
