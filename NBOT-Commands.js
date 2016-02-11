@@ -727,7 +727,7 @@ window.botCommand = {
             ' ' + args + ' tried to fly.',
             ' killed ' + random + ' with a tail.',
             ' ' + random + ' is killed in a storm. `(cat storm)`',
-            ' ' + random + ' is killed by ' + random,
+            ' ' + random + ' is killed by ' + random + '.',
             ' ' + random + ' is killed by santa meows!',
             ' ' + random + ' kissed ' + random + "'s sword!",
             ' ' + random + ' tried to swim in lava.',
@@ -764,7 +764,8 @@ window.botCommand = {
             ' for blaming someone!',
             ' for nothing.',
             ' for being sexy!',
-            ' for beign being alien!'
+            ' for being alien!',
+            ', bad doggy!'
         ];
         if (!args.trim()) {
             send(':' + id + ' Blame who??');
