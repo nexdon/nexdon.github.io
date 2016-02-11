@@ -753,15 +753,16 @@ window.botCommand = {
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
         var random = arr[Math.floor( Math.random() * arr.length )];
+        var random2 = arr[Math.floor( Math.random() * arr.length )];
         var blame = [
-            ' for throwing brick at ' + random + '!',
+            ' for throwing brick at ' + random2 + '!',
             ', he became a dog!',
-            ' for playing mario withouth ' + random + '!',
+            ' for playing mario withouth ' + random2 + '!',
             ', he became a troll!',
-            ' for being just like ' + random + '!',
-            ' for trying to kill ' + random + '.',
+            ' for being just like ' + random2 + '!',
+            ' for trying to kill ' + random2 + '.',
             ', he lost his tail!',
-            ', he ate ' + random + "'s banana!",
+            ', he ate ' + random2 + "'s banana!",
             ' for blaming someone!',
             ' for nothing.',
             ' for being sexy!',
