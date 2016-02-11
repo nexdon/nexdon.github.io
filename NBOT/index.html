@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NBOT | StackExchange chatbot</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<img src="images/logo.png" class="logo" width="0px">
+		<br>
+		NBOT is ChatExchange chatbot created by UNIKITTY and NiKoLaPrO,
+		<br>
+		To use NBOT all you have to do is to type command in this format: +command.
+		<br>
+		You can find all NBOT commands <a href="commands.html">here</a>.
+		<br>
+		<br>
+		<div id="menu" style="margin-top: 400px; transition: 1.5s"><a href="index.html">Home</a> | <a href="commands.html">Commands</a></div>
+	</header>
+	<script>
+	$('document').ready(function(){
+		$('.logo').css({
+			width: '400px'
+		})
+		$('header').css({
+			color: 'white'
+		})
+		$('header a').css({
+			color: '#CC00FF'
+		})
+		$('#menu').css({
+			'margin-top': '0px'
+		})
+	})
+	</script>
+</body>
+</html>
