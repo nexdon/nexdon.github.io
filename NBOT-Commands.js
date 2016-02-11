@@ -742,6 +742,8 @@ window.botCommand = {
         ];
         if (!args.trim()) {
             send(':' + id + ' Blame who??');
+        } else iff (args == 'random') {
+            send(':' + id + ' blame ' + random + blame[Math.floor(Math.random()*blame.length)]);
         } else {
             send(':' + id + ' blame ' + args + blame[Math.floor(Math.random()*blame.length)]);
         }
