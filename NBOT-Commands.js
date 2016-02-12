@@ -698,7 +698,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' ' + args.replace(/\!r\!/g, function() { return arr[Math.floor(Math.random() * arr.length)] }).replace(/\!pr\!/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }));
+            send(':' + id + ' ' + args.replace(/\$r\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }).replace(/\$pr\$/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }));
         }
     }, online: function (id) {
         var bots = [
