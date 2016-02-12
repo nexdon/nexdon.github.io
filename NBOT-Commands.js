@@ -701,7 +701,7 @@ window.botCommand = {
     }, online: function (id) {
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        send(':' + id + ' **Online users:** ' + arr.join(', ').replace(/NBOT/g, 'NBOT (Me)').replace(/NiKoLaPrO/g, '**NiKoLaPrO**') + '.');
+        send(':' + id + ' **Online users:** ' + arr.join(', ').replace(/NBOT/g, '**NBOT**') + '.');
     }, kill: function (id, args) {
         args = args || '';
         var arr = new Array();
