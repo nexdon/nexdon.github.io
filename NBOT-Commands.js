@@ -690,10 +690,13 @@ window.botCommand = {
         send(':' + id + ' ' + $('#roomdesc').text());
     }, echo: function (id, args) {
         args = args || '';
+        var arr = new Array();
+        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        var random = arr[Math.floor( Math.random() * arr.length )];
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' `' + args + '`');
+            send(':' + id + ' ' + args.replace('$random$', random));
         }
     }, online: function (id) {
         var arr = new Array();
