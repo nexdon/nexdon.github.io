@@ -692,7 +692,7 @@ window.botCommand = {
         args = args || '';
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        var random = arr[Math.floor( Math.random() * arr.length )];
+        var random = arr[Math.floor( Math.random() * arr.length )].stop();
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
