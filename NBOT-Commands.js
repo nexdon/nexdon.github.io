@@ -698,7 +698,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' ' + args.replace(/\$random\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }).replace(/\$ping random\$/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }).replace(/\$random number\$/g, function() { Math.random() }));
+            send(':' + id + ' ' + args.replace(/\$random\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }).replace(/\$ping random\$/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }).replace(/\$random number\$/g, function() { 1 + Math.floor(Math.random() * 6) }));
         }
     }, online: function (id) {
         var bots = [
