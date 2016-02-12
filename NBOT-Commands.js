@@ -696,7 +696,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' ' + args.replace(/'$random$'/g, random));
+            send(':' + id + ' ' + args.replace(/\$random\$/g, random));
         }
     }, online: function (id) {
         var arr = new Array();
