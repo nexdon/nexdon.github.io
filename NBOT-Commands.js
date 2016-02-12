@@ -691,12 +691,14 @@ window.botCommand = {
     }, echo: function (id, args) {
         args = args || '';
         var arr = new Array();
+        var arrp = new Array().replace(/ /g, '');
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
+        $("#present-users").children('li.present-user').each(function(){ arrp.push($(this).find('img')[0].title); });
         var random = arr[Math.floor( Math.random() * arr.length )];
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' ' + args.replace(/\$random\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }));
+            send(':' + id + ' ' + args.replace(/\$random\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] })replace(/\$pingrandom\$/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }));
         }
     }, online: function (id) {
         var bots = [
@@ -706,7 +708,7 @@ window.botCommand = {
         ];
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        send(':' + id + ' **Online users:** ' + arr.join(', ').replace('NBOT', '[BOT] NBOT').replace('FOX 9000', '[BOT] FOX 9000').replace('Moosebot', '[BOT] Moosebot') + '.');
+        send(':' + id + ' **Online users:** ' + arr.join(', ') + '.');
     }, kill: function (id, args) {
         args = args || '';
         var arr = new Array();
