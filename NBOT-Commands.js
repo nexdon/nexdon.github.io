@@ -691,9 +691,9 @@ window.botCommand = {
     }, echo: function (id, args) {
         args = args || '';
         var arr = new Array();
-        var arrp = new Array().replace(/ /g, '');
-        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        $("#present-users").children('li.present-user').each(function(){ arrp.push($(this).find('img')[0].title); });
+        var arrp = new Array();
+        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title) });
+        $("#present-users").children('li.present-user').each(function(){ arrp.push($(this).find('img')[0].title.replace(/ /g, '')) });
         var random = arr[Math.floor( Math.random() * arr.length )];
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
