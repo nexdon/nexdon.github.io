@@ -699,9 +699,14 @@ window.botCommand = {
             send(':' + id + ' ' + args.replace(/\$random\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }));
         }
     }, online: function (id) {
+        var bots = [
+            'NBOT',
+            'FOX 9000',
+            'Moosebot'
+        ];
         var arr = new Array();
         $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        send(':' + id + ' **Online users:** ' + arr.join(', ').replace(/NBOT/g, '**NBOT**') + '.');
+        send(':' + id + ' **Online users:** ' + arr.join(', ').replace(bots, bots + ' (bot)') + '.');
     }, kill: function (id, args) {
         args = args || '';
         var arr = new Array();
