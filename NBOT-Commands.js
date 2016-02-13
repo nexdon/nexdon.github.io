@@ -653,6 +653,57 @@ var memes = {
     list: 'trollface \n yes \n no \n okay \n me_gusta \n me_gusta_creepy \n me_gangsta \n me_gusta_creepy \n ich_mag \n me_gusta_facedance \n mother_of_gusta \n troll_gusta \n me_trollista \n indeed \n facepalm \n spiderman \n badass \n you_dont_say \n troll_dance \n so_hardcore \n genius \n not_bad \n ba_dum_no \n ba_dum_tsss \n crying \n derp \n kitten \n sir \n jesus \n jackie_chan \n challenge_accepted \n lol \n gtfo \n slap \n omega_troll \n gasp \n cat_gasp \n troll_rapper \n wut \n cereal_guy \n cereal_guy_spitting \n gusta_okay \n u_jelly \n u_mad \n kill \n bitch_please \n fap \n like_a_boss \n knife_self \n haters_gonna_hate \n fuck_yeah \n boring_cat \n forever_alone \n forever_alone_dance \n high \n nyan_cat \n pretty_badass \n maximum_trolling \n trolling \n desk_flip \n pokerface \n kappa'
 };
 
+var kills = [
+    ' killed $killed$ with a shoe!',
+    ' $killed$ tried to fly.',
+    ' killed $killed$ with a tail.',
+    ' $killed$ is killed in a storm. `(cat storm)`',
+    ' $killed$ is killed by $random2',
+    ' $killed$ is killed by santa meows!',
+    ' $killed$ kissed $random2]\'s sword!',
+    ' $killed$ tried to swim in lava.',
+    ' $killed$ touched pikachu!',
+    ' $killed$ is killed by a sheep.',
+    ' $killed$ tried to kill $random2$, bad move.',
+    ' $killed$ said something bad about Chuck Norris...',
+    ' $killed$ jumped off the bridge. (during drought)',
+    ' $killed$ drowned, he tried to find spongebob.',
+    ' $killed$ committed suicide. (thanks to $random2$)',
+    ' $killed$ tried to kill death!'
+], killsRandom = [
+    ' killed $random$ with a shoe!',
+    ' $killed$ tried to fly.',
+    ' killed $random$ with a tail.',
+    ' $random$ is killed in a storm. `(cat storm)`',
+    ' $random$ is killed by $random2$.',
+    ' $random$ is killed by santa meows!',
+    ' $random$ kissed $random2$\'s sword!',
+    ' $random$ tried to swim in lava.',
+    ' $random$ touched pikachu!',
+    ' $random$ is killed by a sheep.',
+    ' $random$ tried to kill $random2$, bad move.',
+    ' $random$ said something bad about Chuck Norris...',
+    ' $random$ jumped off the bridge. (during drought)',
+    ' $random$ drowned, he tried to find spongebob.',
+    ' $random$ committed suicide. (thanks to $random2$)',
+    ' $random$ tried to kill death!'
+], blame = [
+    ' for throwing brick at $random2$!',
+    ', he became a dog!',
+    ' for playing mario withouth $random2$!',
+    ', he became a troll!',
+    ' for being just like $random2$!',
+    ' for trying to kill $random2$.',
+    ', he lost his tail!',
+    ', he ate $random2$\'s banana!',
+    ' for blaming someone!',
+    ' for nothing.',
+    ' for being sexy!',
+    ' for being alien!',
+    ', bad doggy!'
+];
+
+
 function getBlock(text) {
     var out = [];
     for (var i = 0; i < 8; i++) {
@@ -664,6 +715,32 @@ function getBlock(text) {
         out.push(toPush);
     }
     return out.join('\n');
+}
+
+function getOnlineUsers() {
+    var arr = [];
+    $("#present-users").children('li.present-user').each(function () {
+        arr.push($(this).find('img')[0].title);
+    });
+    return arr;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getOnlineUsersPF() {
+    return getOnlineUsers().map(toPingFormat);
+}
+
+function randomItem(arr) {
+    return arr[getRandomInt(0, arr.length - 1)]
+}
+
+function parseVars(input) {
+    return input.replace(/\$pingRandom\$/g, '@' + randomItem(getOnlineUsersPF()))
+        .replace(/\$random\$/g, randomItem(getOnlineUsers()))
+        .replace(/\$randomPingFormat\$/g, randomItem(getOnlineUsersPF()))
 }
 
 window.botCommand = {
@@ -684,21 +761,18 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please enter name!');
         } else {
-            send('Hello '+ args + '!');
+            send('Hello ' + args + '!');
         }
     }, description: function (id) {
         send(':' + id + ' ' + $('#roomdesc').text());
     }, echo: function (id, args) {
         args = args || '';
-        var arr = new Array();
-        var arrp = new Array();
-        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title) });
-        $("#present-users").children('li.present-user').each(function(){ arrp.push($(this).find('img')[0].title.replace(/ /g, '')) });
-        var random = arr[Math.floor( Math.random() * arr.length )];
+        var onlineUsers = getOnlineUsers();
+        var onlineUsersPF = getOnlineUsersPF();
         if (!args.trim()) {
             send(':' + id + ' Nothing to echo!');
         } else {
-            send(':' + id + ' ' + args.replace(/\$r\$/g, function() { return arr[Math.floor(Math.random() * arr.length)] }).replace(/\$pr\$/g, function() { return '@' + arrp[Math.floor(Math.random() * arrp.length)] }).replace(/\$pfr\$/g, function() { return arrp[Math.floor(Math.random() * arrp.length)] }));
+            send(':' + id + ' ' + parseVars(args));
         }
     }, online: function (id) {
         var bots = [
@@ -706,99 +780,46 @@ window.botCommand = {
             'FOX 9000',
             'Moosebot'
         ];
-        var arr = new Array();
-        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        send(':' + id + ' **Online users:** ' + arr.join(', ') + '.');
+        send(':' + id + ' **Online users:** ' + getOnlineUsers().map(function (e) {
+                return bots.indexOf(e) == -1 ? e : '**[BOT] ' + e + '**'
+            }).join(', ') + '.');
     }, kill: function (id, args) {
         args = args || '';
-        var arr = new Array();
-        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        var random = arr[Math.floor( Math.random() * arr.length )];
-        var random2 = arr[Math.floor( Math.random() * arr.length )];
-        var kills = [
-            ' killed ' + args + ' with a shoe!',
-            ' ' + args + ' tried to fly.',
-            ' killed ' + args + ' with a tail.',
-            ' ' + args + ' is killed in a storm. `(cat storm)`',
-            ' ' + args + ' is killed by ' + random2,
-            ' ' + args + ' is killed by santa meows!',
-            ' ' + args + ' kissed ' + random2 + "'s sword!",
-            ' ' + args + ' tried to swim in lava.',
-            ' ' + args + ' touched pikachu!',
-            ' ' + args + ' is killed by a sheep.',
-            ' ' + args + ' tried to kill ' + random2 + ', bad move.',
-            ' ' + args + ' said something bad about Chuck Norris...',
-            ' ' + args + ' jumped off the bridge. (during drought)',
-            ' ' + args + ' drowned, he tried to find spongebob.',
-            ' ' + args + ' committed suicide. (thanks to ' + random2 + ')',
-            ' ' + args + ' tried to kill death!'
-        ];
-        var killsr = [
-            ' killed ' + random + ' with a shoe!',
-            ' ' + args + ' tried to fly.',
-            ' killed ' + random + ' with a tail.',
-            ' ' + random + ' is killed in a storm. `(cat storm)`',
-            ' ' + random + ' is killed by ' + random2 + '.',
-            ' ' + random + ' is killed by santa meows!',
-            ' ' + random + ' kissed ' + random2 + "'s sword!",
-            ' ' + random + ' tried to swim in lava.',
-            ' ' + random + ' touched pikachu!',
-            ' ' + random + ' is killed by a sheep.',
-            ' ' + random + ' tried to kill ' + random2 + ', bad move.',
-            ' ' + random + ' said something bad about Chuck Norris...',
-            ' ' + random + ' jumped off the bridge. (during drought)',
-            ' ' + random + ' drowned, he tried to find spongebob.',
-            ' ' + random + ' committed suicide. (thanks to ' + random2 + ')',
-            ' ' + random + ' tried to kill death!'
-        ];
+        var arr = getOnlineUsers();
+        var random = arr[Math.floor(Math.random() * arr.length)];
+        var random2 = arr[Math.floor(Math.random() * arr.length)];
+
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill!');
-        } else if (args == 'random') {
-            send(':' + id + killsr[Math.floor(Math.random()*killsr.length)]);
-        } else {
-            send(':' + id + kills[Math.floor(Math.random()*kills.length)]);
         }
+        if (args === '--random')
+            send(':' + id + ' ' + parseVars(randomItem(killsRandom)).replace(/\$random2\$/g, randomItem(getOnlineUsers())));
+        else
+                send(':' + id + ' ' + randomItem(kills).replace(/\$killed\$/g, args).replace(/\$random2\$/g, randomItem(getOnlineUsers())));
     }, blame: function (id, args) {
         args = args || '';
-        var arr = new Array();
-        $("#present-users").children('li.present-user').each(function(){ arr.push($(this).find('img')[0].title); });
-        var random = arr[Math.floor( Math.random() * arr.length )];
-        var random2 = arr[Math.floor( Math.random() * arr.length )];
-        var blame = [
-            ' for throwing brick at ' + random2 + '!',
-            ', he became a dog!',
-            ' for playing mario withouth ' + random2 + '!',
-            ', he became a troll!',
-            ' for being just like ' + random2 + '!',
-            ' for trying to kill ' + random2 + '.',
-            ', he lost his tail!',
-            ', he ate ' + random2 + "'s banana!",
-            ' for blaming someone!',
-            ' for nothing.',
-            ' for being sexy!',
-            ' for being alien!',
-            ', bad doggy!'
-        ];
+        var arr = getOnlineUsers();
+        var random2 = randomItem(arr);
+        var random = randomItem(arr);
         if (!args.trim()) {
             send(':' + id + ' Blame who??');
-        } else if (args == 'random') {
-            send(':' + id + ' blame ' + random + blame[Math.floor(Math.random()*blame.length)]);
-        } else {
-            send(':' + id + ' blame ' + args + blame[Math.floor(Math.random()*blame.length)]);
-        }
+        } else if (args == '--random')
+            send(':' + id + ' blame ' + random + randomItem(blame).replace(/\$random2\$/g, random2));
+         else
+            send(':' + id + ' blame ' + args + randomItem(blame));
     }, imagetext: function (id, args) {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g,'%20') + '&.jpg');
+            send(':' + id + ' http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g, '%20') + '&.jpg');
         }
     }, lmgtfy: function (id, args) {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' **lmgtfy:** http://lmgtfy.com/?q=' + encodeURIComponent(args).replace(/ /g,'%20'));
+            send(':' + id + ' **lmgtfy:** http://lmgtfy.com/?q=' + encodeURIComponent(args).replace(/ /g, '%20'));
         }
     }, slap: function (id, args) {
         args = args || '';
@@ -809,7 +830,7 @@ window.botCommand = {
         }
     }, sniper: function (id, args) {
         args = args || '';
-        var meters = Math.round(Math.random()*1000) + 1;
+        var meters = Math.round(Math.random() * 1000) + 1;
         if (!args.trim()) {
             send(':' + id + ' Nothing to kill with a sniper!');
         } else {
@@ -821,8 +842,7 @@ window.botCommand = {
             send(':' + id + ' Mooooo, nothing to say???');
         } else {
             $.get('http://allow-any-origin.appspot.com/http://cowsay.morecode.org/say?message=' + encodeURI(args) + '&format=text').success(function (data) {
-                var translated = data;
-                send('`' + translated + '`');
+                send('`' + data + '`');
             });
         }
     }, help: function (id, args) {
@@ -837,11 +857,11 @@ window.botCommand = {
         args = args || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
             if (!memes[args]) send(':' + id + ' http://i.imgur.com/W6J1NCR.gif'); else
-            send(':' + id + ' ' + memes[args])
+                send(':' + id + ' ' + memes[args])
         }
     }, rmeme: function (id) {
         var keys = Object.keys(memes);
-        send(':' + id + ' ' + memes[keys[ keys.length * Math.random() << 0]]);
+        send(':' + id + ' ' + memes[keys[keys.length * Math.random() << 0]]);
     }, bigLogo: function () {
         var logo = '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n\
 ▒▒▒█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒▒████████████▒▒▒▒▒██████████████▒▒███████████████████▒▒▒\n\
