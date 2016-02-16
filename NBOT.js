@@ -105,12 +105,12 @@ var onload = function () {
                 'position: relative;' +
                 'width: 350px;' +
                 'height: auto;' +
-                'border: 3px solid #333;' +
-                'background-color: #333' +
+                'border: 3px solid #fff;' +
+                'background-color: #fff' +
                 '}' +
                 '' +
                 '.ntitle {' +
-                'color: #fff; ' +
+                'color: #333; ' +
                 'font-size: 20px;' +
                 ' font-weight: bold;' +
                 ' margin-bottom: 0px; ' +
@@ -122,7 +122,7 @@ var onload = function () {
                 ' .nitem {' +
                 'cursor: pointer;' +
                 ' font-size: 15px; ' +
-                'color: #fff; ' +
+                'color: #333; ' +
                 'position: absolute; ' +
                 'font-weight: normal; ' +
                 'margin-left: 0px;' +
@@ -131,14 +131,14 @@ var onload = function () {
                 '}' +
                 ' .nitem:hover {' +
                 'background-color: #fff;' +
-                ' color: #333; ' +
+                ' color: #000; ' +
                 'text-decoration: none;' +
                 ' font-weight: normal;' +
                 '}' +
                 ' .nbot > input {' +
-                'background: #333;' +
-                ' color: #fff;' +
-                ' border: 2px solid #fff;' +
+                'background: #fff;' +
+                ' color: #333;' +
+                ' border: 2px solid #333;' +
                 '}' +
                 '.visit-cms {' +
                 'position: absolute;' +
