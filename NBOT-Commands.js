@@ -764,7 +764,7 @@ window.botCommand = {
             send('Hello ' + args + '!');
         }
     }, tag: function (id, args) {
-        send(':' + id + ' [tag:' + args + ']');
+        send(':' + id + ' [tag:' + args.replace(/ /g, '') + ']');
     }, description: function (id) {
         send(':' + id + ' ' + $('#roomdesc').text());
     }, echo: function (id, args) {
