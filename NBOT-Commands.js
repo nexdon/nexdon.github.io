@@ -858,7 +858,7 @@ window.botCommand = {
             send(':' + id + ' Mooooo, nothing to say???');
         } else {
             $.get('http://allow-any-origin.appspot.com/http://cowsay.morecode.org/say?message=' + encodeURI(args) + '&format=text').success(function (data) {
-                send('`' + data + '`');
+                send(data.replace(/\\n/g,'\n    '));
             });
         }
     }, help: function (id, args) {
