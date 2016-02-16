@@ -67,7 +67,7 @@ function setupWS() {
                                     });
                                     var command = commandParts[0];
                                     if (!botCommand[command]) {
-										var keys = Object.keys(botCommand), matches = Array(2), cmd = 'apple', ix = 0, hh = 0;
+										var keys = Object.keys(botCommand), matches = Array(2), cmd = command, ix = 0, hh = 0;
 										for (var i = 0; i < keys.length; i++) {
 											var k = keys[i];
 											matches[i] = 0;
