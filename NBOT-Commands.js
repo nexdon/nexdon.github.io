@@ -758,11 +758,17 @@ window.botCommand = {
         send(':' + id + ' **NBOT commands:** `' + commands.join('`, `') + '`');
     }, wiki: function (id, args) {
         args = args || '';
+        $.get('https://en.wikipedia.org/wiki/' + encodeURI(args)).success(function (data) {
+            var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(!!~$('.noarticletext .mbox-text b')[1].innerHTML.indexOf('Wikipedia does not have an article with this exact name.')).textContent;
+        });
         if (!args.trim()) {
             send(':' + id + ' Please type something first!');
         }
+        else if (translated = true) {
+            send(':' + id + ' Errorrrrrrrrr!!!');
+        }
         else {
-            send(':' + id + ' https://en.wikipedia.org/wiki/' + encodeURIComponent(args).replace(/ /g, '_').replace(/\s/g, '_'));
+            send(':' + id + ' https://en.wikipedia.org/wiki/' + encodeURI(args))
         }
     }, greet: function (id, args) {
         args = args || '';
