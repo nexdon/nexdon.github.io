@@ -755,7 +755,15 @@ window.botCommand = {
                 commands.push(command);
             }
         }
-        send(':' + id + ' The commands are: `' + commands.join('`, `') + '`');
+        send(':' + id + ' **NBOT commands:** `' + commands.join('`, `') + '`');
+    }, wiki: function (id, args) {
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Please type something first!');
+        }
+        else {
+            send(':' + id + 'https://en.wikipedia.org/wiki/' + encodeURIComponent(args).replace(/ /g, '_'));
+        }
     }, greet: function (id, args) {
         args = args || '';
         if (!args.trim()) {
