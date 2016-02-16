@@ -764,7 +764,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please type something first!');
         }
-        else if (translated = true) {
+        else if (translated == true) {
             send(':' + id + ' Errorrrrrrrrr!!!');
         }
         else {
