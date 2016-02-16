@@ -764,11 +764,8 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please type something first!');
         }
-        else if (translated == true) {
-            send(':' + id + ' Errorrrrrrrrr!!!');
-        }
         else {
-            send(':' + id + ' https://en.wikipedia.org/wiki/' + encodeURI(args))
+            send(':' + id + ' ' + translated)
         }
     }, greet: function (id, args) {
         args = args || '';
