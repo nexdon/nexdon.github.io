@@ -762,7 +762,7 @@ window.botCommand = {
             send(':' + id + ' Please type something first!');
         }
         else {
-            send(':' + id + ' http://en.wikipedia.org/wiki/' + encodeURI(args));
+            send(':' + id + ' https://en.wikipedia.org/wiki/' + encodeURI(args));
         }
     }, greet: function (id, args) {
         args = args || '';
