@@ -763,7 +763,7 @@ window.botCommand = {
         } else {
             send('Hello ' + args + '!');
         }
-    }, tag: function (args) {
+    }, tag: function (id, args) {
         send(':' + id + ' [tag:' + args + ']');
     }, description: function (id) {
         send(':' + id + ' ' + $('#roomdesc').text());
