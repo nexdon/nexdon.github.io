@@ -764,7 +764,13 @@ window.botCommand = {
             send('Hello ' + args + '!');
         }
     }, tag: function (id, args) {
-        send(':' + id + ' [tag:' + args.replace(/ /g, '-') + ']');
+        args = args || '';
+        if (!args.trim()) {
+            send(':' + id + ' Nothing to tag?');
+        }
+        else {
+            send(':' + id + ' [tag:' + args.replace(/ /g, '-') + ']');
+        }
     }, description: function (id) {
         send(':' + id + ' ' + $('#roomdesc').text());
     }, echo: function (id, args) {
