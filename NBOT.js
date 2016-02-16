@@ -67,11 +67,10 @@ function setupWS() {
                                     });
                                     var command = commandParts[0];
                                     if (!botCommand[command]) {
-                                        var keys=Object.keys(botCommand),matches=Array(2),cmd='apple',ix=0,hh=0;
+                                        send('Command "' + command + '" not found, did you mean +' + var keys=Object.keys(botCommand),matches=Array(2),cmd='apple',ix=0,hh=0;
 for(var i=0;i<keys.length;i++){var k=keys[i];matches[i]=0;for(var j=1;j<=cmd.length;j++)
 if(~k.indexOf(cmd[j-1]))matches[i]+=1;}for(i=1;i<=matches.length;i++)if(matches[i]>hh)
-ix=i,hh=matches[i];keys[ix];
-                                        send('Command "' + command + '" not found, did you mean +' + keys + '?');
+ix=i,hh=matches[i];keys[ix]; + '?');
                                         return;
                                     }
                                     var args = undefined;
