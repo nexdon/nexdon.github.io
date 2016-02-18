@@ -870,10 +870,10 @@ window.botCommand = {
             }
         }
     }, meme: function (id, args) {
-        args = args || '';
+        args = args.replace(/ /g, '_') || '';
         if (!args.trim()) send(':' + id + ' `I dunno what u want, use +meme <meme>`'); else {
             if (!memes[args]) send(':' + id + ' http://i.imgur.com/W6J1NCR.gif'); else
-                send(':' + id + ' ' + memes[args].replace(/ /g, '_'))
+                send(':' + id + ' ' + memes[args])
         }
     }, rmeme: function (id) {
         var keys = Object.keys(memes);
