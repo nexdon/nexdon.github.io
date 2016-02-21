@@ -77,7 +77,7 @@ function setupWS() {
                                         for (i = 1; i <= matches.length; i++)
                                             if (matches[i] > hh)
                                                 ix = i, hh = matches[i];
-                                        send(':'+eventJson['message_id']+' Command "' + command + '" not found, did you mean **+' + keys[ix] + '**?');
+                                        send(':'+eventJson['message_id']+' Command **+' + command + '** not found, did you mean **+' + keys[ix] + '**?');
                                         return;
                                     }
                                     var args = undefined;
