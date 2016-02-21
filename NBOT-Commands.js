@@ -835,7 +835,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' [Search "' + args + '" on Google]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + ')');
+            send(':' + id + '\n' + '["' + args + '" - Google search]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + ')' + '\n' + ' ["' + args + '" - Google images]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + '&source=lnms&tbm=isch' + ')');
         }
     }, slap: function (id, args) {
         args = args || '';
