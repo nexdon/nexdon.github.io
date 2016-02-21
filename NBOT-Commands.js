@@ -835,7 +835,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + '\n' + '█**[SEARCH]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + ')**' + '█' + '**[IMAGES]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + '&source=lnms&tbm=isch' + ')**█');
+            send(':' + id + '\n' 'Google search for **' + args + ':**' + '\n' + '[SEARCH]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + ')' + ' **-** ' + '[IMAGES]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + '&source=lnms&tbm=isch' + ')');
         }
     }, slap: function (id, args) {
         args = args || '';
