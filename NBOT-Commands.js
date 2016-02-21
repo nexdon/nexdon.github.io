@@ -830,12 +830,12 @@ window.botCommand = {
         } else {
             send(':' + id + ' http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g, '%20') + '&.jpg');
         }
-    }, lmgtfy: function (id, args) {
+    }, google: function (id, args) {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' **lmgtfy:** http://lmgtfy.com/?q=' + encodeURIComponent(args).replace(/ /g, '%20'));
+            send(':' + id + ' [Search "' + args + '" on Google]' + '(https://www.google.com/search?q=' + encodeURIComponent(args).replace(/ /g, '+') + ')');
         }
     }, slap: function (id, args) {
         args = args || '';
