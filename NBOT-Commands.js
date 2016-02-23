@@ -774,6 +774,8 @@ window.botCommand = {
                 var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(".inner-box-wrapper").eq(1).text();
                 send(':' + id + '\n' + translated);
                 localStorage.define[args] = translated;
+            }).fail(function(){
+                send('Error occurred.');
             });
     }, greet: function (id, args) {
         args = args || '';
