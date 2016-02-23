@@ -775,7 +775,6 @@ window.botCommand = {
                 send(':' + id + '\n' + translated);
                 localStorage.define[args] = translated;
             });
-        }
     }, greet: function (id, args) {
         args = args || '';
         if (!args.trim()) {
