@@ -1,6 +1,6 @@
 if (!localStorage.catLang) localStorage.catLang = {};
 if (!localStorage.pirateLang) localStorage.pirateLang = {};
-if (!localStorage.time) localStorage.time = {};
+if (!localStorage.define) localStorage.define = {};
 
 window.bigWords = {
     '0': [
@@ -764,7 +764,19 @@ window.botCommand = {
         else {
             send(':' + id + ' https://en.wikipedia.org/wiki/' + encodeURI(args));
         }
-    }, greet: function (id, args) {
+    }, define: function(id, args) {
+        args = args || '';
+        if (!args.trim()) args = 'Please enter word first.';
+        if (!!localStorage.define[args]) {
+            send(':' + id + ' ' + localStorage.define[args]);
+        } else
+            $.get('http://www.urbandictionary.com/define.php?term=' + encodeURI(args)).success(function (data) {
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(".meaning:first").textContent;
+                send(':' + id + '\n' + translated);
+                localStorage.define[args] = translated;
+            });
+        }
+    ), greet: function (id, args) {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Please enter name!');
