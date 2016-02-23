@@ -774,8 +774,9 @@ window.botCommand = {
                 var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(".meaning:first").textContent;
                 send(':' + id + '\n' + translated);
                 localStorage.define[args] = translated;
-        });
-    ), greet: function (id, args) {
+            });
+        }
+    }, greet: function (id, args) {
         args = args || '';
         if (!args.trim()) {
             send(':' + id + ' Please enter name!');
