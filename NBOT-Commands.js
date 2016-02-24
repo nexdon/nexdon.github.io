@@ -770,8 +770,8 @@ window.botCommand = {
         if (!!localStorage.define[args]) {
             send(':' + id + ' ' + localStorage.define[args]);
         } else
-            $.get('http://www.merriam-webster.com/dictionary/' + encodeURI(args)).success(function (data) {
-                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(".inner-box-wrapper").eq(1).text();
+            $.get('http://www.oxforddictionaries.com/definition/english/' + encodeURI(args)).success(function (data) {
+                var translated = new DOMParser().parseFromString(data, 'text/html').querySelector(".definition:first").textContent;
                 send(':' + id + '\n' + translated);
                 localStorage.define[args] = translated;
             }).fail(function(){
