@@ -1,6 +1,5 @@
 <html>
   <head>
-    <title>Dark Koala Knights</title>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
@@ -112,7 +111,7 @@
     <header>
       <div class="title">Dark Koala Knights</div>
     </header>
-    <div id='messagesDiv' class="messages"><a id="msgs"></a></div>
+    <div id='messagesDiv' class="messages"></div>
     <div class="footer">
       <button class="nbtn" id="nick">Change Nick</button>
     <div class="overlay" style="display: none"><div class="nick"><h3>Select your nick:</h3><input type='text' id='nameInput' placeholder='Name'><button id="change">Change Nick</button></div></div>
@@ -139,7 +138,7 @@
         displayChatMessage(message.name, message.text);
       });
       function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text('<b>' + name + ':</b> ')).appendTo($('#messagesDiv'));
+        $('<div/>').text(text).prepend($('<b/>').text('[' + name + ']: ')).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
     </script>
