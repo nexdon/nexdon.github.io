@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>Dark Koala Knights</title>
 		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -143,22 +144,22 @@
 				console.log(values);
 				if (values.hasOwnProperty(user.id))
 					name = values[user.id].name;
+				$('#login').fadeOut(0);
+				$('#lro').fadeOut(0);
+				$('#log').fadeOut(0);
+				$('#reg').fadeOut(0);
+				$('#lout').fadeIn(0);
+				$('#name').fadeIn(0);
+				$('#name').text('Logged in: ' + name);
+					myUser = user;
+					// doLogin(user);
+					console.log('logged in')
+					$("#data").attr('disabled', false);
+					$("#opener-logout").attr('disabled', false);
+					$("#opener-login").attr('disabled', true);
 			}, function (errorObject) {
 				console.log("!! The read failed: " + errorObject.code);
 			});
-			$('#login').fadeOut(0);
-			$('#lro').fadeOut(0);
-			$('#log').fadeOut(0);
-			$('#reg').fadeOut(0);
-			$('#lout').fadeIn(0);
-			$('#name').fadeIn(0);
-			$('#name').text('Logged in: ' + name);
-				myUser = user;
-				// doLogin(user);
-				console.log('logged in')
-				$("#data").attr('disabled', false);
-				$("#opener-logout").attr('disabled', false);
-				$("#opener-login").attr('disabled', true);
 			} else {
 				// User is logged out.
 				console.log('logged out');
