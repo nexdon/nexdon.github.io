@@ -24,7 +24,7 @@ header .title {
 	top: 84px;
 	left: 0;
 	right: 0;
-	bottom: 30px;
+	bottom: 50px;
 	background-color: #f0f0f0;
 	color: #333;
 	font-size: 16px;
@@ -176,9 +176,15 @@ header .title {
 .name {
 	position: relative;
 	float: right;
-	font-size: 20px;
-	font-family: helvetica;
+	font-size: 18px;
+	font-family: 'Raleway';
+	font-weight: 900;
 	margin-left: 5px;
+	top: 23px;
+	left: -30px;
+	color: #EDEEF1;
+	background-color: #495265;
+	padding: 8px 15px;
 }
 #regcancel {
 	background-color: red;
