@@ -140,6 +140,7 @@
 				console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
 			ref.child("users").on("value", function(snapshot) {
 				var values = snapshot.val();
+				console.log(values);
 				if (values.hasOwnProperty(user.id))
 					name = values[user.id].name;
 			}, function (errorObject) {
