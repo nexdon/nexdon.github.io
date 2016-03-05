@@ -70,7 +70,7 @@
 			$('#messageInput').keypress(function (e) {
 				if (e.keyCode == 13) {
 					if (typeof name === 'undefined'
-							|| /\s*/.test(name)) {
+							|| /^\s*$/.test(name)) {
 						send('', 'ERROR: You are not logged in!');
 						return;
 					}
