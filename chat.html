@@ -94,6 +94,7 @@
 			});
 			function send(nick, text) {
 				if (typeof text != 'undefined'
+						&& text.getTags() != null
 						&& text.getTags().indexOf(name) > -1)
 					pingSound.play();
 				$('<div/>').text(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
