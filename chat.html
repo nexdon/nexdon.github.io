@@ -46,78 +46,14 @@
 			<source src="./audio/pling.wav">
 		</audio>
 		<script>
-			if (typeof String.prototype.getTags != 'function')
+		if (typeof String.prototype.getTags != 'function')
 				String.prototype.getTags = function () {
 					var tgs = this.match(/@[a-zA-Z0-9]+/g);
 					for (i in tgs) if(!isNaN(i)) tgs[i]=tgs[i].replace(/^@/,'').toLowerCase();
 					return tgs;
 				}
-			var name = '';
-			$('#log').click(function(){
-				$('#lro').fadeIn(0);
-				$('#login').fadeIn(0);
-			})
-			$('#reg').click(function(){
-				$('#lro').fadeIn(0);
-				$('#register').fadeIn(0);
-			})
-			$('#nick').click(function(){
-				$('#settings').fadeIn(0);
-			});
-			$('#change').click(function(){
-				$('.overlay').fadeOut(0);
-			});
-			$('#lout').click(function(){
-					console.log('logged out');
-					$('#log').fadeIn(0);
-					$('#reg').fadeIn(0);
-					$('#lout').fadeOut(0);
-					$('#name').fadeOut(0);
-					authClient.logout();
-			});
-			var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
-			$('#messageInput').keypress(function (e) {
-				if (e.keyCode == 13) {
-					if (typeof name === 'undefined'
-							|| /^\s*$/.test(name)) {
-						send('', 'ERROR: You are not logged in!');
-						return;
-					}
-					var text = $('#messageInput').val();
-					myDataRef.push({name: name, text: text});
-					$('#messageInput').val('');
-				}
-			});
-			myDataRef.on('child_added', function(snapshot) {
-				var message = snapshot.val();
-				send(message.name, message.text);
-			});
-			function send(nick, text) {
-				if (typeof text != 'undefined'
-						&& text.getTags() != null
-						&& text.getTags().indexOf(name.toLowerCase()) > -1)
-					pingSound.play();
-				text = text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-				var re = /https?:\/\/(www\.)?[^\s]+\.[^\s]+\/[^\s]+\.(?:png|jpg|jpeg|gif|tiff)/gi,
-					r,index,found;
-				while ( (r = re.exec(text)) ) {
-					index = r.index, found = r[0];
-					text = text.substring(0, index)
-						+ '<img src="' + r[0] + '">'
-						+ text.substring(index + r[0].length, text.length);
-				}
-				$('<div'+(nick==name ? ' class="me"' : '')+'/>').html(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
-				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-			};
-		</script>
+		var name = '';
 
-
-
-		<!--LOGIN/REGISTER SCRIPT-->
-
-
-
-		<script>
 		ref = new Firebase('https://nexdon.firebaseio.com/');
 		myUser = -1;
 
@@ -244,6 +180,72 @@
 				$('#data').val('');
 			}
 		});
+		</script>
+
+
+
+		<!--LOGIN/REGISTER SCRIPT-->
+
+
+
+
+		<script>
+			$('#log').click(function(){
+				$('#lro').fadeIn(0);
+				$('#login').fadeIn(0);
+			})
+			$('#reg').click(function(){
+				$('#lro').fadeIn(0);
+				$('#register').fadeIn(0);
+			})
+			$('#nick').click(function(){
+				$('#settings').fadeIn(0);
+			});
+			$('#change').click(function(){
+				$('.overlay').fadeOut(0);
+			});
+			$('#lout').click(function(){
+					console.log('logged out');
+					$('#log').fadeIn(0);
+					$('#reg').fadeIn(0);
+					$('#lout').fadeOut(0);
+					$('#name').fadeOut(0);
+					authClient.logout();
+			});
+			var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
+			$('#messageInput').keypress(function (e) {
+				if (e.keyCode == 13) {
+					if (typeof name === 'undefined'
+							|| /^\s*$/.test(name)) {
+						send('', 'ERROR: You are not logged in!');
+						return;
+					}
+					var text = $('#messageInput').val();
+					myDataRef.push({name: name, text: text});
+					$('#messageInput').val('');
+				}
+			});
+			myDataRef.on('child_added', function(snapshot) {
+				var message = snapshot.val();
+				send(message.name, message.text);
+			});
+			function send(nick, text) {
+				if (typeof text != 'undefined'
+						&& text.getTags() != null
+						&& text.getTags().indexOf(name.toLowerCase()) > -1)
+					pingSound.play();
+				text = text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+				var re = /https?:\/\/(www\.)?[^\s]+\.[^\s]+\/[^\s]+\.(?:png|jpg|jpeg|gif|tiff)/gi,
+					r,index,found;
+				while ( (r = re.exec(text)) ) {
+					index = r.index, found = r[0];
+					text = text.substring(0, index)
+						+ '<img src="' + r[0] + '">'
+						+ text.substring(index + r[0].length, text.length);
+				}
+				$('<div'+(nick==name ? ' class="me"' : '')+'/>').html(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
+				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+			};
 		</script>
 	</body>
 </html>
