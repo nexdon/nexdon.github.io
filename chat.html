@@ -68,6 +68,7 @@
 			var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
 			$('#messageInput').keypress(function (e) {
 				if (e.keyCode == 13) {
+					if (!user || !user.id) return;
 					ref.child("users").on("value", function(snapshot) {
 						var values = snapshot.val();
 						if (values.hasOwnProperty(user.id))
@@ -219,7 +220,7 @@
 				console.log(myUser.id);
 				var myRef = new Firebase("https://nexdon.firebaseio.com/users/" + myUser.id);
 				myRef.push({
-						data: data
+					data: data
 				});
 				$('#data').val('');
 			}
