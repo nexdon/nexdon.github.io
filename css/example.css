@@ -1,99 +1,162 @@
-header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-	background-color: #000;
-	color: white;
-	font-family: helvetica;
-	z-index: 10;
+    header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #000;
+  color: white;
+  font-family: helvetica;
+  z-index: 10;
 }
 header .title {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	font-size: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
 }
 .messages {
-	position: absolute;
-	top: 50px;
-	left: 0;
-	right: 0;
-	bottom: 30px;
-	background-color: #333;
-	color: white;
-	font-family: helvetica;
-	overflow: auto;
-	z-index: 9;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  background-color: #333;
+  color: white;
+  font-family: helvetica;
+  overflow: auto;
+  z-index: 9;
 }
 .footer {
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 30px;
-	background-color: #000;
-	z-index: 11;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  background-color: #000;
+  z-index: 11;
 }
 .footer .msg {
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	height: 26px;
-	width: 750px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 26px;
+  width: 750px;
 }
-.nick {
-	position: absolute;
-	right: 2px;
-	bottom: 2px;
-	width: 200px;
-	height: 150px;
-	border: 2px solid #000;
-	background-color: #262626;
-	font-family: helvetica;
-	color: white;
-	text-align: center;
-	z-index: 10000;
+.settings {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 200px;
+  height: 150px;
+  border: 2px solid #000;
+  background-color: #262626;
+  font-family: helvetica;
+  color: white;
+  text-align: center;
+  z-index: 10000;
 }
-.nick h3 {
-	margin: 0;
-	padding: 0;
-	margin-top: 5px;
-	margin-bottom: 5px;
+.settings h3 {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.nick input {
-	width: 100%;
-	height: 30px;
+.settings input {
+  width: 100%;
+  height: 30px;
 }
 .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,0.4);
-	z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1000;
 }
-.nick button {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	height: 30px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background-color: black;
-	color: white;
-	cursor: pointer;
-	border: 2px solid black;
+.settings button {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 2px solid black;
 }
 .nbtn {
-	position: absolute;
-	right: 2px;
-	height: 30px;
-	border: 2px solid #333;
-	background-color: #000;
-	color: white;
-	cursor: pointer;
-	font-family: helvetica;
+  position: absolute;
+  right: 2px;
+  height: 30px;
+  border: 2px solid #333;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  font-family: helvetica;
+}
+.topbtn {
+  position: relative;
+  float: right;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 20px;
+  font-family: helvetica;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.topbtn:hover {
+  background-color: #fff;
+  color: #000;
+}
+.window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #fff;
+  color: #000;
+  z-index: 1001;
+  text-align: center;
+}
+.window button {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.window h3 {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.window input {
+  width: 100%;
+  height: 30px;
+}
+.name {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  font-family: helvetica;
+  margin-left: 5px;
+}
+#regcancel {
+  background-color: red;
+  left: 0;
+}
+#logcancel {
+  background-color: red;
+  left: 0;
 }
