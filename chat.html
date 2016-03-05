@@ -2,43 +2,238 @@
   <head>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
     <link rel='stylesheet' type='text/css' href='/css/example.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
   </head>
   <body>
+    <div class="overlay" id="lro" style="display: none;"></div>
+    <div class="window" id="register" style="display: none;">
+      <h3>Registration</h3>
+      <input type="text" id="register-username" />
+      <br>
+      <input type="email" name="email" id="register-email" />
+      <br>
+      <input type="password" name="password" id="register-password" value="" />
+      <br>
+      <button id="regbtn">Register</button>
+      <button id="regcancel">Cancel registration</button>
+    </div>
+    <div class="window" id="login" style="display: none;">
+      <h3>Login</h3>
+      <input type="email" name="email" id="login-email" />
+      <br>
+      <input type="password" name="password" id="login-password" value="" />
+      <br>
+      <button id="logbtn">Login</button>
+      <button id="logcancel">Cancel login</button>
+    </div>
     <header>
       <div class="title">Dark Koala Knights</div>
+      <div class="topbtn" id="lout" style="display: none;">Logout</div>
+      <div class="name" id="name" style="display: none;"></div>
+      <div class="topbtn" id="reg" style="display: block;">Register</div>
+      <div class="topbtn" id="log" style="display: block;">Login</div>
     </header>
     <div id='messagesDiv' class="messages"></div>
     <div class="footer">
-      <button class="nbtn" id="nick">Change Nick</button>
-    <div class="overlay" style="display: none"><div class="nick"><h3>Select your nick:</h3><input type='text' id='nameInput' placeholder='Name'><button id="change">Change Nick</button></div></div>
+      <button class="nbtn" id="nick">Settings</button>
+    <div class="overlay" style="display: none" id="settings"><div class="settings"><h3>Settings</h3><input type='text' id='nameInput' placeholder='Name'><button id="change">Save</button></div></div>
     <input type='text' id='messageInput' placeholder='Press enter to send a message' class="msg">
     </div>
     <script>
+      $('#log').click(function(){
+        $('#lro').fadeIn(0);
+        $('#login').fadeIn(0);
+      })
+      $('#reg').click(function(){
+        $('#lro').fadeIn(0);
+        $('#register').fadeIn(0);
+      })
       $('#nick').click(function(){
-        $('.overlay').fadeIn();
+        $('#settings').fadeIn(0);
       });
       $('#change').click(function(){
-        $('.overlay').fadeOut();
+        $('.overlay').fadeOut(0);
       });
+      $('#lout').click(function(){
+          console.log('logged out');
+          $('#log').fadeIn(0);
+          $('#reg').fadeIn(0);
+          $('#lout').fadeOut(0);
+          $('#name').fadeOut(0);
+          authClient.logout();
+      })
       var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          myDataRef.push({name: name, text: text});
-          $('#messageInput').val('');
+    ref.child("users").on("value", function(snapshot) {
+      var values = snapshot.val();
+      if (values.hasOwnProperty(user.id))
+        name = values[user.id].name;
+    }, function (errorObject) {
+      console.log("!! The read failed: " + errorObject.code);
+    });
+     var text = $('#messageInput').val();
+            myDataRef.push({name: name, text: text});
+            $('#messageInput').val('');
         }
       });
       myDataRef.on('child_added', function(snapshot) {
         var message = snapshot.val();
-        displayChatMessage(message.name, message.text);
+        send(message.name, message.text);
       });
-      function displayChatMessage(name, text) {
+      function send(name, text) {
         $('<div/>').text(text).prepend($('<b/>').text('[' + name + ']: ')).appendTo($('#messagesDiv'));
-        console.log('Message posted: ' + message.text + ' (' + message.uid + ') ' + 'by ' + message.name +'.');
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
+    </script>
+
+
+
+
+
+
+
+
+    <!--LOGIN/REGISTER SCRIPT-->
+
+
+
+
+
+
+
+
+
+    <script>
+    ref = new Firebase('https://nexdon.firebaseio.com/');
+myUser = -1;
+
+$('#regbtn').click(function(){
+  var email = $('#register-email').val();
+  var password = $('#register-password').val();
+  ref.createUser({
+  email    : email,
+  password : password
+}, function(error, authData) {
+  if (error) {
+    console.log("Error creating user:", error);
+  } else {
+    // save the user's profile into the database so we can list users,
+    // use them in Security and Firebase Rules, and show profiles
+    var username = $('#register-username').val();
+    ref.child("users").child(authData.uid).set({
+      name: username
+    });
+    var getname = myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        send(message.name, message.text);
+    });
+    ref.child("users").on("value", function(snapshot) {
+      var values = snapshot.val();
+      if (values.hasOwnProperty(user.id))
+        name = values[user.id].name;
+    }, function (errorObject) {
+      console.log("!! The read failed: " + errorObject.code);
+    });
+    $('#register').fadeOut(0);
+    $('#lro').fadeOut(0);
+    $('#log').fadeOut(0);
+    $('#reg').fadeOut(0);
+    $('#lout').fadeIn(0);
+    $('#name').fadeIn(0);
+    $('#name').html('Logged in: ' + name);
+  }
+});
+})
+$('#logbtn').click(function(){
+    var email = $('#login-email').val();
+    var password = $('#login-password').val();
+    doLogin(email, password);
+    ref.child("users").on("value", function(snapshot) {
+      var values = snapshot.val();
+      if (values.hasOwnProperty(user.id))
+        name = values[user.id].name;
+    }, function (errorObject) {
+      console.log("!! The read failed: " + errorObject.code);
+    });
+    $('#login').fadeOut(0);
+    $('#lro').fadeOut(0);
+    $('#log').fadeOut(0);
+    $('#reg').fadeOut(0);
+    $('#lout').fadeIn(0);
+    $('#name').fadeIn(0);
+    $('#name').html('Logged in: ' + name);
+})
+$('#regcancel').click(function(){
+  $('#lro').fadeOut(0);
+  $('#register').fadeOut(0);
+})
+$('#logcancel').click(function(){
+  $('#lro').fadeOut(0);
+  $('#login').fadeOut(0);
+})
+
+function doLogin(email, password) {
+    authClient.login('password', {
+        email: email,
+        password: password
+    });
+};
+
+var authClient = new FirebaseSimpleLogin(ref, function (error, user) {
+    if (error) {
+        alert(error);
+        return;
+    }
+    if (user) {
+        // User is already logged in.
+        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+    ref.child("users").on("value", function(snapshot) {
+      var values = snapshot.val();
+      if (values.hasOwnProperty(user.id))
+        name = values[user.id].name;
+    }, function (errorObject) {
+      console.log("!! The read failed: " + errorObject.code);
+    });
+    $('#login').fadeOut(0);
+    $('#lro').fadeOut(0);
+    $('#log').fadeOut(0);
+    $('#reg').fadeOut(0);
+    $('#lout').fadeIn(0);
+    $('#name').fadeIn(0);
+    $('#name').text('Logged in: ' + name);
+        myUser = user;
+        // doLogin(user);
+        console.log('logged in')
+        $("#data").attr('disabled', false);
+        $("#opener-logout").attr('disabled', false);
+        $("#opener-login").attr('disabled', true);
+    } else {
+        // User is logged out.
+        console.log('logged out');
+        $("#data").attr('disabled', true);
+        $("#opener-logout").attr('disabled', true);
+        $("#opener-login").attr('disabled', false);
+        // ("#dialog-form").dialog("open");
+    }
+});
+
+
+
+$('#data').keypress(function (e) {
+    if (e.keyCode == 13) {
+        var data = $('#data').val();
+        console.log(myUser.id);
+        var myRef = new Firebase("https://nexdon.firebaseio.com/users/" + myUser.id);
+        myRef.push({
+            data: data
+        });
+        $('#data').val('');
+    }
+});
     </script>
   </body>
 </html>
