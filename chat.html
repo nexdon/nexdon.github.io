@@ -48,8 +48,8 @@
 		<script>
 			if (typeof String.prototype.getTags != 'function')
 				String.prototype.getTags = function () {
-					var tgs = this.match(/@[a-zA-Z0-9]+/ig);
-					for (i in tgs) if(!isNaN(i)) tgs[i]=tgs[i].replace(/^@/,'');
+					var tgs = this.match(/@[a-zA-Z0-9]+/g);
+					for (i in tgs) if(!isNaN(i)) tgs[i]=tgs[i].replace(/^@/,'').toLowerCase();
 					return tgs;
 				}
 			var name = '';
@@ -95,8 +95,16 @@
 			function send(nick, text) {
 				if (typeof text != 'undefined'
 						&& text.getTags() != null
-						&& text.getTags().indexOf(name) > -1)
+						&& text.getTags().indexOf(name.toLowerCase()) > -1)
 					pingSound.play();
+				var re = /https?:\/\/(www\.)?[^\s]+\.[^\s]+\/[^\s]+\.(?:png|jpg|jpeg|gif|tiff)/gi,
+					r,index,found;
+				while ( (r = re.exec(text)) ) {
+					index = r.index, found = r[0];
+					text = text.substring(0, index)
+						+ '<img src="' + r[0] + '">'
+						+ text.substring(index + r[0].length, text.length);
+				}
 				$('<div/>').text(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
 				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 			};
