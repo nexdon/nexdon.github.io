@@ -41,6 +41,12 @@ header .title {
 .messages > div.me {
 	background-color: #E4E8F0;
 }
+.tag {
+	background-color: #EBF5AA;
+	padding: 2px 4px;
+	margin: 0 4px 0;
+	color: #656A48;
+}
 .footer {
 	position: absolute;
 	left: 0;
