@@ -93,7 +93,8 @@
 				send(message.name, message.text);
 			});
 			function send(nick, text) {
-				if (text.getTags().indexOf(name) > -1)
+				if (typeof text != 'undefined'
+						&& text.getTags().indexOf(name) > -1)
 					pingSound.play();
 				$('<div/>').text(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
 				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
