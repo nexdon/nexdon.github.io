@@ -43,6 +43,7 @@
 		<input type='text' id='messageInput' placeholder='Press enter to send a message' class="msg">
 		</div>
 		<script>
+			var name = '';
 			$('#log').click(function(){
 				$('#lro').fadeIn(0);
 				$('#login').fadeIn(0);
@@ -68,18 +69,11 @@
 			var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
 			$('#messageInput').keypress(function (e) {
 				if (e.keyCode == 13) {
-					if (typeof user === 'undefined') {
+					if (typeof name === 'undefined'
+							|| /\s*/.test(name)) {
 						send('', 'ERROR: You are not logged in!');
 						return;
 					}
-					ref.child("users").on("value", function(snapshot) {
-						var values = snapshot.val();
-						if (values.hasOwnProperty(user.id))
-							name = values[user.id].name;
-					}, function (errorObject) {
-						console.log("!! The read failed: " + errorObject.code);
-					});
-					if (/\s*/.test(name)) return;
 					var text = $('#messageInput').val();
 					myDataRef.push({name: name, text: text});
 					$('#messageInput').val('');
