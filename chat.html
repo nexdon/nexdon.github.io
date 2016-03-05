@@ -68,7 +68,10 @@
 			var myDataRef = new Firebase('https://nexdon.firebaseio.com/');
 			$('#messageInput').keypress(function (e) {
 				if (e.keyCode == 13) {
-					if (typeof user === 'undefined') return;
+					if (typeof user === 'undefined') {
+						send('', 'ERROR: You are not logged in!');
+						return;
+					}
 					ref.child("users").on("value", function(snapshot) {
 						var values = snapshot.val();
 						if (values.hasOwnProperty(user.id))
