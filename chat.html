@@ -33,6 +33,7 @@
       myDataRef.on('child_added', function(snapshot) {
         var message = snapshot.val();
         displayChatMessage(message.name, message.text);
+        console.log('Message posted: ' + message.text + ' (' + message + ') ' + 'by ' + message.name +'.');
       });
       function displayChatMessage(name, text) {
         $('<div/>').text(text).prepend($('<b/>').text('[' + name + ']: ')).appendTo($('#messagesDiv'));
