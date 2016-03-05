@@ -36,7 +36,7 @@
       });
       function displayChatMessage(name, text) {
         $('<div/>').text(text).prepend($('<b/>').text('[' + name + ']: ')).appendTo($('#messagesDiv'));
-        console.log('Message posted: ' + message.text + ' (' + message.id + ') ' + 'by ' + message.name +'.');
+        console.log('Message posted: ' + message.text + ' (' + message.uid + ') ' + 'by ' + message.name +'.');
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
     </script>
