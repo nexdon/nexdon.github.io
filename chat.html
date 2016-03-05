@@ -246,9 +246,15 @@
 						+ '<img src="' + r[0] + '">'
 						+ text.substring(index + r[0].length, text.length);
 				}
-				text.getTags().map(function(tag) {
-					text = text.replace(RegExp('@' + tag, 'g'),'<span class="tag">@' + tag + '</span>');
-				});
+				var tags = text.getTags();
+				if (tags) {
+					tags.map(function(tag) {
+						if (typeof text != 'undefined'
+						&& text.getTags() != null
+						&& text.getTags().indexOf(name.toLowerCase()) > -1)
+							text = text.replace(RegExp('@' + tag, 'g'),'<span class="tag">@' + tag + '</span>');
+					});
+				}
 				$('<div'+(nick==name ? ' class="me"' : '')+'/>').html(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
 				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 			};
