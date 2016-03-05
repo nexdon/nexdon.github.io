@@ -63,6 +63,7 @@ header .title {
 	font-size: 17px;
 	font-family: 'Roboto';
 	font-weight: 400;
+	outline: 0px none;
 }
 .settings {
 	position: absolute;
