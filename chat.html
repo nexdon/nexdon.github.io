@@ -48,7 +48,7 @@
 		<script>
 			if (typeof String.prototype.getTags != 'function')
 				String.prototype.getTags = function () {
-					var tgs = this.match(/@[a-zA-Z0-9]+/g);
+					var tgs = this.match(/@[a-zA-Z0-9]+/ig);
 					for (i in tgs) if(!isNaN(i)) tgs[i]=tgs[i].replace(/^@/,'');
 					return tgs;
 				}
