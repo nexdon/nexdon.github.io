@@ -42,7 +42,16 @@
 		<div class="overlay" style="display: none" id="settings"><div class="settings"><h3>Settings</h3><input type='text' id='nameInput' placeholder='Name'><button id="change">Save</button></div></div>
 		<input type='text' id='messageInput' placeholder='Press enter to send a message' class="msg">
 		</div>
+		<audio id="pingSound">
+			<source src="./audio/pling.wav">
+		</audio>
 		<script>
+			if (typeof String.prototype.getTags != 'function')
+				String.prototype.getTags = function () {
+					var tgs = this.match(/@[a-zA-Z0-9]+/g);
+					for (i in tgs) if(!isNaN(i)) tgs[i]=tgs[i].replace(/^@/,'');
+					return tgs;
+				}
 			var name = '';
 			$('#log').click(function(){
 				$('#lro').fadeIn(0);
@@ -83,8 +92,10 @@
 				var message = snapshot.val();
 				send(message.name, message.text);
 			});
-			function send(name, text) {
-				$('<div/>').text(text).prepend($('<b/>').text('[' + name + ']: ')).appendTo($('#messagesDiv'));
+			function send(nick, text) {
+				if (text.getTags().indexOf(name) > -1)
+					pingSound.play();
+				$('<div/>').text(text).prepend($('<b/>').text('[' + nick + ']: ')).appendTo($('#messagesDiv'));
 				$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 			};
 		</script>
