@@ -220,7 +220,7 @@
 				if (e.keyCode == 13) {
 					if (typeof name === 'undefined'
 							|| /^\s*$/.test(name)) {
-						send('', 'ERROR: You are not logged in!');
+						send('ERROR', 'You are not logged in!');
 						return;
 					}
 					var text = $('#messageInput').val();
