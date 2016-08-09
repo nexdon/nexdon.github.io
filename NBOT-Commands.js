@@ -841,7 +841,7 @@ window.botCommand = {
         if (!args.trim()) {
             send(':' + id + ' Please add text!');
         } else {
-            send(':' + id + ' http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g, '%20') + '&.jpg');
+            send(':' + id + ' !http://dummyimage.com/1000x500/000/fff?text=' + encodeURIComponent(args).replace(/ /g, '%20') + '&.jpg');
         }
     }, google: function (id, args) {
         args = args || '';
@@ -947,5 +947,21 @@ window.botCommand = {
                 send(':' + id + ' ' + translated);
                 localStorage.pirateLang[args] = translated;
             });
+    }, orly: function(id, args, username) {
+        args = args || '';
+        if (!args.trim()) {
+ 	    send(':' + id + ' You need a book name. Usage: +orly "title" "subtitle" "top" "author"');
+ 	    return;
+	}
+        argv = args.match(/"([^"]+)" ?/g).map(function(arg) {
+            return arg.trim().replace(/^"(.+)"$/, "$1");
+        });
+        if (!argv.length === 4) {
+	    send(':' + id + ' You need a book name. Usage: +orly "title" "subtitle" "top" "author"');
+	    return;
+        }
+        payload = 'https://orly-appstore.herokuapp.com/generate?title=' + encodeURIComponent(argv[0]) + "&top_text=" + encodeURIComponent(argv[2]) 
+            + "&author=" + encodeURIComponent(argv[3]) + "&image_code=" + getRandomInt(0, 40) + "&theme=" + getRandomInt(0, 16) + "&guide_text=" + encodeURIComponent(argv[1]) + "&guide_text_placement=bottom_right";
+        send(':' + id + ' !' + payload);
     }
 };
