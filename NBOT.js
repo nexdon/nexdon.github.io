@@ -83,7 +83,7 @@ function setupWS() {
                                     var args = undefined;
                                     if (!!commandParts[1]) args = $('<a>').html(commandParts[1]).text();
                                     var id = eventJson['message_id'];
-                                    botCommand[command](id, args);
+                                    botCommand[command](id, args, eventJson['user_name']);
                                 }
                             }
                             else if (eventJson['event_type'] == 3) {
